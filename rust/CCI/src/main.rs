@@ -22,10 +22,5 @@ fn update_bit(num:u32, bit:u8, val:u8)->u32{
 }
 
 fn main() {
-	let a = 5;
-	let i = 3;
-	let val = 1;
-
-	println!("{}", update_bit(a, i, val));
 	
 }
