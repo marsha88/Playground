@@ -1,3 +1,5 @@
+#![allow(unused_variables, dead_code)]
+
 fn get_bit(num:u32, bit:u8)->u32{		
 	let val:u32 = (num & (1 << bit));
 	val >> bit
@@ -22,5 +24,6 @@ fn update_bit(num:u32, bit:u8, val:u8)->u32{
 }
 
 fn main() {
-	
+	let a = 5;
+	println!("{}", get_bit(a, 0));	
 }
