@@ -1,4 +1,6 @@
 #[warn(dead_code)]
+extern crate first_lib;
+
 fn add_nums(x:i32, y:i32)->i32{
 	x + y
 }
@@ -51,7 +53,11 @@ fn silver_mining(coins:Vec<coin>)->u32{
 
 fn main() {
 	//Find the silver quarters
+	/*
 	let coins = vec![coin::Quarter(1965), coin::Quarter(1965),coin::Quarter(1999), coin::Penny, coin::Nickel, coin::Quarter(1960)];
 	println!("This set of coins has {} silver coins",silver_mining(coins));
+	*/
+
+	first_lib::client::connect();
 		
 }
