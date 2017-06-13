@@ -1,5 +1,6 @@
 extern crate first_lib;
 
+use first_lib::test;
 use first_lib::client::Letters::{A, B, C};
 
 fn main(){

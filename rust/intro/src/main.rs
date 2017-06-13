@@ -1,5 +1,4 @@
 #[warn(dead_code)]
-extern crate first_lib;
 
 fn add_nums(x:i32, y:i32)->i32{
 	x + y
@@ -51,13 +50,28 @@ fn silver_mining(coins:Vec<coin>)->u32{
 	count 
 }
 
+fn messing_with_vectors(){
+	let mut a:Vec<i32> = vec![1,2,3,4];
+	let mut b = Vec::new();
+	b.push(2);
+	let val:i32 = b[0];
+	let mut c = vec!["hello", "world"];
+}
+
+fn unwrap(x: Option<i32>) -> i32{
+	match x{
+		Some(x) => { return x; },
+		None => { return 0; }
+	}
+}
+
 fn main() {
-	//Find the silver quarters
 	/*
 	let coins = vec![coin::Quarter(1965), coin::Quarter(1965),coin::Quarter(1999), coin::Penny, coin::Nickel, coin::Quarter(1960)];
 	println!("This set of coins has {} silver coins",silver_mining(coins));
 	*/
+	let test:i32 = unwrap(Some(5));
+//	messing_with_vectors();
+	println!("test is {}", test);
 
-	first_lib::client::connect();
-		
 }
