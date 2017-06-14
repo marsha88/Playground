@@ -65,13 +65,28 @@ fn unwrap(x: Option<i32>) -> i32{
 	}
 }
 
+fn more_strings(){
+	let a = String::from("hello,");
+	let c = String::from("dog");
+	let b = a + &c;
+
+
+	println!("{}", b);
+
+	for i in "hello".chars(){
+		println!("{}", i);
+	}
+}
+
 fn main() {
 	/*
-	let coins = vec![coin::Quarter(1965), coin::Quarter(1965),coin::Quarter(1999), coin::Penny, coin::Nickel, coin::Quarter(1960)];
-	println!("This set of coins has {} silver coins",silver_mining(coins));
-	*/
+	   let coins = vec![coin::Quarter(1965), coin::Quarter(1965),coin::Quarter(1999), coin::Penny, coin::Nickel, coin::Quarter(1960)];
+	   println!("This set of coins has {} silver coins",silver_mining(coins));
+	 */
 	let test:i32 = unwrap(Some(5));
-//	messing_with_vectors();
+	//	messing_with_vectors();
 	println!("test is {}", test);
+
+	more_strings();
 
 }
