@@ -88,5 +88,24 @@ fn main() {
 	println!("test is {}", test);
 
 	more_strings();
+	struct Test{
+		value: i32
+	}
+	
+	let a = Test{ value: 4 };
+	println!("{}", a.value);
+
+	let myBool:bool = if(4 < 5){ true }else{ false };
+	println!("{}", myBool);
+
+	let mut myVec = vec![1,3,4,6];
+	let mut myVecRef = &mut myVec;
+	println!("{:?}", myVecRef);
+
+	let tup = ("hello", 3);
+	let (hello, three) = tup;
+
+	println!("{}", hello);
+	println!("{}", three);
 
 }
