@@ -1,5 +1,9 @@
 #[warn(dead_code)]
 
+mod option_copy;
+use option_copy::Optional;
+use option_copy::Optional::*;
+
 fn add_nums(x:i32, y:i32)->i32{
 	x + y
 }
@@ -32,7 +36,7 @@ enum coin{
 	Nickel,
 	Dime,
 	Quarter(i32),
-	Half_Dollar		
+	Half_Dollar
 }
 
 fn silver_mining(coins:Vec<coin>)->u32{
@@ -43,11 +47,11 @@ fn silver_mining(coins:Vec<coin>)->u32{
 		if let coin::Quarter(year) = coins[x]{
 			if year <= 1965{
 				count += 1;
-			}				
-		}						
+			}
+		}
 
 	}
-	count 
+	count
 }
 
 fn messing_with_vectors(){
@@ -78,6 +82,13 @@ fn more_strings(){
 	}
 }
 
+fn giveOptionalVal(num:u32) -> Optional<u32>{
+	if num < 10{
+		return Optional::Nope;
+	}
+	return Optional::Value(100);
+}
+
 fn main() {
 	/*
 	   let coins = vec![coin::Quarter(1965), coin::Quarter(1965),coin::Quarter(1999), coin::Penny, coin::Nickel, coin::Quarter(1960)];
@@ -91,7 +102,7 @@ fn main() {
 	struct Test{
 		value: i32
 	}
-	
+
 	let a = Test{ value: 4 };
 	println!("{}", a.value);
 
@@ -108,4 +119,10 @@ fn main() {
 	println!("{}", hello);
 	println!("{}", three);
 
+	if let Value(x) = giveOptionalVal(9){
+		println!("Value contained: {}", x );
+	}
+	else{
+		println!("Nope.");
+	}
 }
