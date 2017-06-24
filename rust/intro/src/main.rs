@@ -84,9 +84,9 @@ fn more_strings(){
 
 fn giveOptionalVal(num:u32) -> Optional<u32>{
 	if num < 10{
-		return Optional::Nope;
+		return Nope;
 	}
-	return Optional::Value(100);
+	return Value(100);
 }
 
 fn main() {
