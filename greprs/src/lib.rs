@@ -15,12 +15,40 @@ impl Config{
     }
 }
 
+pub fn search<'a>(needle:&str, haystack:&'a str) -> Vec<&'a str>{
+    let mut results = Vec::new();
+    for line in haystack.lines(){
+        if line.contains(needle){
+            results.push(line);
+        }
+    }
+    results
+}
+
 pub fn run(config: Config) -> Result<(), Box<Error>>{
     let mut file = File::open(&config.file).expect("File not found");
     let mut file_content = String::new();
     /* move contents of file to fileContent string */
     file.read_to_string(&mut file_content)?;
-    println!("File {} contains\n-------------------------\n{}",
-    config.file, file_content);
+    /* print lines containing query */
+    for line in search(&config.query, &file_content){
+        println!("{}", line);
+    }
     Ok(())
+}
+
+#[cfg(test)]
+mod test {
+    use super::*;
+
+    #[test]
+    fn one_result() {
+        let query = "duct";
+        let contents = "Rust:\nsafe, fast, productive.\nPick three.";
+
+        assert_eq!(
+            vec!["safe, fast, productive."],
+            search(query, contents)
+        );
+    }
 }
