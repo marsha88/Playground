@@ -39,3 +39,27 @@ const printList = function(list){
 
 let myList = prepend(3, prepend(4, prepend(5, emptyList)));
 printList(myList);
+
+
+/* Building numbers out of lists */
+
+const zero = emptyList;
+
+const inc = (number) => {
+  return prepend(emptyList, number);
+};
+
+const dec = (number) => {
+  return tail(number);
+};
+
+const isZero = isEmpty;
+
+const add = (a, b) => {
+  if(isZero(a)){
+    return b;
+  }
+  else{
+    return add(dec(a), inc(b));
+  }
+};

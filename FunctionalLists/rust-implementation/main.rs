@@ -4,7 +4,7 @@
 */
 
 /* ListType will be used to return multiple types from a function */
-
+/*
 enum ListType{
     Head(/* function that returns i32 */),
     Tail(/* function that returns the same function type. */)
@@ -27,9 +27,20 @@ fn head(list:F) -> i32{
 fn tail(list:F) -> F where F: Fn(i32, F, bool){
     return list(|head, tail, empty| tail);
 }
-
+*/
 
 fn main(){
 
+    /* closure as variable */
+    let a:fn(i32,i32) -> i32 = |x, y| x+y;
+    
+    /* setting a variable to a function */
+    fn two() -> i32 {2}
+    let c = two;
+    println!("{}", c());
 
+    struct Point(i32,i32);
+let a = Point(1,2);
+let Point(x, y) = a;
+println!("{}, {}", x, y);
 }
