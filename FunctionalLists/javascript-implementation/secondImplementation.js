@@ -37,8 +37,10 @@ const printList = function(list){
   }
 };
 
+/*
 let myList = prepend(3, prepend(4, prepend(5, emptyList)));
 printList(myList);
+*/
 
 /* logical operators needed for number functions */
 const and = (a, b) => {
@@ -122,7 +124,7 @@ const equal = (a, b) => {
   return equal(dec(a), dec(b));
 };
 
-const lessThan(a, b) => {
+const lessThan = (a, b) => {
   if(or(isZero(a), isZero(b))){
     if(and(isZero(a), not(isZero(b)))){
       return true;
@@ -132,7 +134,7 @@ const lessThan(a, b) => {
   return lessThan(dec(a), dec(b));
 }
 
-cosnt greaterThan = (a, b) => {
+const greaterThan = (a, b) => {
   return lessThan(b, a);
 };
 
@@ -148,4 +150,14 @@ const rem = (a, b) => {
     return a;
   }
   return rem(sub(a,b), b);
-}
+};
+
+/* grab numeric value from list. Basically a leng function */
+const parseNum = (num) => {
+  if(isZero(num)){
+    return 0;
+  }
+  return 1 + parseNum(dec(num));
+};
+
+console.log(parseNum(div(inc(inc(zero)), inc(zero))));
