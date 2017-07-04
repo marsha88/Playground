@@ -32,11 +32,16 @@ struct Line<T:Printable>{
 	p2: T
 }
 
-impl<T:Printable> Line<T>{
+/* T where T implements the trait Printable */
+impl<T> Line<T> where T:Printable{
 	fn printCoordinates(&self){
 		self.p1.print();
 		self.p2.print();
 	}
+}
+
+fn longest<'a>(x:&'a str, y: &'a str) -> &'a str{
+	if x.len() > y.len(){ x }else{ y }
 }
 
 fn main(){
@@ -45,7 +50,16 @@ fn main(){
 
 	let p1 = Point{ x: 1, y: 7};
 	let p2 = Point{ x: 4, y: 16};
-	let line = Line{p1: p1, p2: p2};
+	let line = Line{ p1, p2 };
 	line.printCoordinates();
 
+	let str1 = "Hello";
+	let str2 = "Good-bye";
+	println!("{}", longest(str1, str2));
+
+	/* Destructuring Tuple Struct */
+	struct TupleStruct (u8, u8, u8);
+	let b = TupleStruct(1,2,3);
+	let TupleStruct(h, i, j) = b;
+	println!("{},{},{}", h, i, j);
 }
