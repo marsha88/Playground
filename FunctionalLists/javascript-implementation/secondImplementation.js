@@ -161,3 +161,12 @@ const parseNum = (num) => {
 };
 
 console.log(parseNum(div(inc(inc(zero)), inc(zero))));
+
+{
+var a = 'test';
+let b = 'test';
+}
+
+console.log(a);
+console.log(b);
+
