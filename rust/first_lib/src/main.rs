@@ -44,6 +44,10 @@ fn longest<'a>(x:&'a str, y: &'a str) -> &'a str{
 	if x.len() > y.len(){ x }else{ y }
 }
 
+fn return_function(x:i32) -> Box<Fn(i32)->i32>{
+	Box::new(move |y| x*y)
+}
+
 fn main(){
 	let a = A;
 	Test::Another::intro();
@@ -62,4 +66,7 @@ fn main(){
 	let b = TupleStruct(1,2,3);
 	let TupleStruct(h, i, j) = b;
 	println!("{},{},{}", h, i, j);
+
+	let clojure = return_function(2);
+	println!("{}", clojure(3));
 }
