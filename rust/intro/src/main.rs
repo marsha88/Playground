@@ -125,4 +125,8 @@ fn main() {
 	else{
 		println!("Nope.");
 	}
+
+	let myVec:Vec<u32> = vec![1,2,3,4];
+	let myVecTimesTwo:Vec<u32> = myVec.iter().map(|x| x*2).collect();
+	println!("vector times two: {:?}", myVecTimesTwo);
 }
