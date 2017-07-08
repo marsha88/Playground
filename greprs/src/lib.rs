@@ -7,22 +7,27 @@ pub struct Config{
    pub file: String
 }
 impl Config{
-    pub fn new(args:&[String]) -> Result<Config, &'static str>{
-        if args.len() < 3 {
-            return Err("Usage: cargo run <query> <file>");
-        }
-        Ok(Config{ query: args[1].clone(), file: args[2].clone() })
+    pub fn new(mut args: std::env::Args) -> Result<Config, &'static str>{
+        args.next();
+
+        let query = match args.next() {
+            Some(x) => x,
+            None => return Err("Didn't get a query string"),
+        };
+
+        let file = match args.next(){
+            Some(x) => x,
+            None => return Err("Didn't get a file name")
+        };
+
+        Ok(Config{ query, file })
     }
 }
 
 pub fn search<'a>(needle:&str, haystack:&'a str) -> Vec<&'a str>{
-    let mut results = Vec::new();
-    for line in haystack.lines(){
-        if line.contains(needle){
-            results.push(line);
-        }
-    }
-    results
+    haystack.lines()
+            .filter(|line| line.contains(needle))
+            .collect()
 }
 
 pub fn run(config: Config) -> Result<(), Box<Error>>{
