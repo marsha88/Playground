@@ -15,3 +15,22 @@
 )
 
 (sumOfLargestSquares 2 3 1)
+
+
+#| Exercise 1.4 |#
+; 1:+ 2:- 3:* 4:/
+
+(define (operation x)
+  (cond
+    ((= x 1) +)
+    ((= x 2) -)
+    ((= x 3) *)
+    ((= x 4) /)
+  )
+)
+
+(define (apply a b op)
+  ((operation op) a b)
+)
+
+(apply 2 3 4)
