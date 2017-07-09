@@ -80,10 +80,7 @@
         (cubert-iter (improve guess))
     )
   )
-  (if (> x 0)
-      (cubert-iter 1.0)
-      -1
-  )
+  (cubert-iter 1.0)
 )
 
 (cubert 27)
