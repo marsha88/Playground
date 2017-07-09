@@ -36,30 +36,46 @@
 (apply 2 3 4)
 
 #| Newton's Square Root method |#
-(define (sqrt x)
-  (if (> x 0)
-      (sqrt-iter 1.0 x)
-      -1
-  )
-)
-
-(define (sqrt-iter guess x)
-  (if (good-enough guess x)
-      guess
-      (sqrt-iter (improve guess x) x)
-  )
-)
 
 (define (avg x y)
   (/ (+ x y) 2)
 )
 
-(define (improve guess x)
-  (avg guess (/ x guess))
+(define (sqrt x)
+  (define (improve guess)
+    (avg guess (/ x guess))
+  )
+  (define (good-enough guess)
+    (< (abs (- (square guess) x)) 0.001)
+  )
+  (define (sqrt-iter guess)
+    (if (good-enough guess)
+        guess
+        (sqrt-iter (improve guess))
+    )
+  )
+  (if (> x 0)
+      (sqrt-iter 1.0)
+      -1
+  )
 )
-
-(define (good-enough guess x)
-  (< (abs (- (square guess) x)) 0.001)
-)
-
 (sqrt 2)
+
+
+#| The new-if hypothesis |#
+
+#|
+   This iff cannot be used for the sqrt function because this iff statement uses applicative order
+   evaluation instead of normal order evaluation. Basically, the built-in if statement lazily evaluates
+   its arguments while the one implemented here tries to unwrap the arguments which means it will continue calling
+   sqrt-iter over and over until you've reached the maximum recursion depth.
+|#
+
+(define (iff predicate then-clause else-clause)
+  (cond
+    (predicate then-clause)
+    (else else-clause)
+  )
+)
+
+(iff (= 0 0) 1 2)
