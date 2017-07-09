@@ -59,7 +59,34 @@
       -1
   )
 )
-(sqrt 2)
+
+(sqrt 4)
+
+#| Cubed Root |#
+(define (cube x)
+  (* x x x)
+)
+
+(define (cubert x)
+  (define (improve guess)
+    (/ (+ (/ x (square guess)) (* 2 guess)) 3)
+  )
+  (define (good-enough guess)
+    (< (abs (- (cube guess) x)) 0.001)
+  )
+  (define (cubert-iter guess)
+    (if (good-enough guess)
+        guess
+        (cubert-iter (improve guess))
+    )
+  )
+  (if (> x 0)
+      (cubert-iter 1.0)
+      -1
+  )
+)
+
+(cubert 27)
 
 
 #| The new-if hypothesis |#
