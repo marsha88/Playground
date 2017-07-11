@@ -29,18 +29,53 @@ fn tail(list:F) -> F where F: Fn(i32, F, bool){
 }
 */
 
+enum List{
+    Cons(i32, Box<List>),
+    Nil
+}
+
+fn tail(list:Box<List>) -> Box<List>{
+    if let List::Cons(val, b) = *list{
+        return b;
+    }
+    return Box::new(List::Nil);
+}
+
+fn printList(x:Box<List>){
+    if let List::Cons(val, b) = *x{
+        println!("{}", val);
+        printList(b);
+    }
+}
+
+fn filter(list:Box<List>, func:fn(i32)->bool) -> Box<List>{
+    if let List::Cons(val, b) = *list{
+        if func(val){
+            return Box::new(List::Cons(val, filter(b, func)));
+        }
+    }
+    return Box::new(List::Nil);
+}
+
+
+fn map(list:Box<List>, func:fn(i32)->i32) -> Box<List>{
+    if let List::Cons(val, b) = *list{
+        return Box::new(List::Cons(func(val), map(b, func)));
+    }
+    return Box::new(List::Nil);
+}
+
 fn main(){
+    let myList = Box::new(List::Cons(3,
+        Box::new(List::Cons(2,
+            Box::new(List::Cons(22,
+                Box::new(List::Nil)))))));
 
-    /* closure as variable */
-    let a:fn(i32,i32) -> i32 = |x, y| x+y;
-    
-    /* setting a variable to a function */
-    fn two() -> i32 {2}
-    let c = two;
-    println!("{}", c());
+    let underTen = filter(myList, |x:i32| -> bool{
+        if x < 10{ true }else{ false }
+    });
 
-    struct Point(i32,i32);
-let a = Point(1,2);
-let Point(x, y) = a;
-println!("{}, {}", x, y);
+    let factorsOfTen = map(underTen, |x:i32| -> i32{ x*10 });
+
+    printList(factorsOfTen);
 }
