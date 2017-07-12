@@ -103,3 +103,27 @@
 )
 
 (iff (= 0 0) 1 2)
+
+
+#| Number of ways you can be given change |#
+
+(define (changeOptions amount)
+  (cc amount 5))
+
+(define (cc amount coin)
+    (cond
+      ((or (< amount 0) (= coin 0)) 0)
+      ((or(= amount 0) (= amount 1)) 1)
+      (else
+        (+ (cc (- amount (denomination coin)) coin) (cc amount (- coin 1))))
+      )
+    )
+)
+(define (denomination amount)
+  (cond ((= amount 1) 1)
+    ((= amount 2) 5)
+    ((= amount 3) 10)
+    ((= amount 4) 25)
+    ((= amount 5) 50))
+)
+(changeOptions 100)
