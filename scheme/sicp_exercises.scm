@@ -105,7 +105,7 @@
 (iff (= 0 0) 1 2)
 
 
-#| Number of ways you can be given change |#
+; Number of ways you can be given change
 
 (define (changeOptions amount)
   (cc amount 5))
@@ -117,8 +117,8 @@
       (else
         (+ (cc (- amount (denomination coin)) coin) (cc amount (- coin 1))))
       )
-    )
 )
+
 (define (denomination amount)
   (cond ((= amount 1) 1)
     ((= amount 2) 5)
@@ -127,3 +127,72 @@
     ((= amount 5) 50))
 )
 (changeOptions 100)
+
+; Exponentiation
+(define (even x)
+	(= (remainder x 2) 0)
+)
+
+(define (alt-expo b n)
+	(if (= n 0) 1
+	(if (even n) (square (alt-expo b (/ n 2)))
+		(* b (alt-expo b (- n 1))))
+	)
+)
+
+(alt-expo 5 3)
+
+; Euclid's Algorithm
+(define (gcd a b)
+	(if (= b 0) a
+	(gcd b (remainder a b))
+	)
+)
+
+(gcd 16 28)
+
+; Higher Order Procedures and lambda functions
+(define (funcToReturnFunc x)
+  (lambda ()
+    (* x 2)
+  )
+)
+
+((funcToReturnFunc 3))
+
+;lambda functions stored in variable
+(define plus5 (lambda (x) (+ x 5)))
+
+(define (callLambda func x)
+  (func x)
+)
+
+(callLambda plus5 10)
+
+; Using let expressions
+
+(define (magnitude x y)
+(let ((a (square x))
+        (b (square y)))
+  (sqrt (+ a b))
+))
+
+; let expressions are built on lambdas. Here is the same magnitude function, but using the lambda implementation.
+(define (magnitudeUsingLambda x y)
+  ((lambda (a b)
+    (sqrt (+ a b))
+  )
+  (square x)
+  (square y)
+  )
+)
+
+; These give the same output
+(magnitude 2 2)
+(magnitudeUsingLambda 2 2)
+
+;let values are as local as possible since the code using the newly defined variables is literally in the body of the let statement
+(define x 5)
+(+ (let ((x 3))
+        (+ x (* x 10)))
+x)
