@@ -196,3 +196,51 @@
 (+ (let ((x 3))
         (+ x (* x 10)))
 x)
+(define (inc x)
+  (+ x 1)
+)
+;Exercise 1.41
+(define (applyTwice proc)
+  (lambda (x)
+    (proc (proc x))
+  )
+)
+
+((applyTwice inc) 5)
+
+; Pairs
+
+(define doubleTuple (cons 1 2))
+
+(+ (car doubleTuple) (cdr doubleTuple))
+
+(define list (cons 1 (cons 2 (cons 3 (cons 4 5)))))
+(define (head list)
+  (car list)
+)
+(define (tail list)
+  (cdr list)
+)
+(head (tail (tail (tail list))))
+
+; It's been long enough. Here is how you print to stdout
+(display "Hello, world.")
+
+; Exercise 2.1
+(define (negative x)
+  (if (< x 0) x (* -1 x))
+)
+
+(define (print-rational x)
+  (newline)
+  (display (car x))
+  (display "/")
+  (display (cdr x)))
+
+(define (make-rational x y)
+  (if (> (/ x y) 0) (cons (abs x) (abs y))
+    (cons (negative x) (abs y))
+  )
+)
+
+(print-rational (make-rational 3 -2))
