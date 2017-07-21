@@ -22,4 +22,36 @@
   (println (set [1 2 3 4 4 5 5]))
   (println ((or + -) 1 2 3))
 
+  (defn greeting "This function likely performs very little" [name]
+    (str "hello, " name)
+  )
+
+  (println (greeting "clayton"))
+
+  (defn noParams []
+    "I take zero parameters"
+  )
+  (println (noParams))
+
+ (defn first-arity
+   ([first] first)
+   ([first second] (+ first second))
+ )
+ (println (first-arity 1))
+ (println (first-arity 1 2))
+
+ (defn default-values
+   "Arity overloading allows nice support for default values."
+   ([name weapon] (str name " chooses " weapon))
+   ([name] (default-values name "pistol"))
+ )
+
+ (println (default-values "clayton"))
+ (println (default-values "clayton" "monkey-wrench"))
+
+ 
+
+
+
+
 )
