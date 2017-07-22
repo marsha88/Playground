@@ -49,9 +49,32 @@
  (println (default-values "clayton"))
  (println (default-values "clayton" "monkey-wrench"))
 
- 
+;; Using rest parameters
+(defn codger-communication
+  [whippersnapper]
+  (str "Get off my lawn, " whippersnapper "!!!"))
 
+(defn codger
+    [& whippersnappers]
+  (map codger-communication whippersnappers))
 
+(println (codger "hello" "world"))
 
+ (defn restParams
+   ([name & more]
+     (restParams (str name " and " more))
+   )
+   ([name]
+    (str "Hello, " name)
+   )
+ )
 
+ (println (restParams "clayton"))
+ (println (restParams "clayton" "casey" "cat" "dog"))
+
+ (defn createObj [firstName lastName]
+   {:firstName firstName
+    :lastName lastName}
+ )
+ (println (createObj "clayton" "marshall"))
 )

@@ -244,3 +244,50 @@ x)
 )
 
 (print-rational (make-rational 3 -2))
+
+(define (my-cons x y)
+  (lambda (m)
+    (cond ((= m 0) x)
+          ((= m 1) y)
+          (else (error "Argument not 0 or 1 -- CONS" m))))
+)
+(define (grabHead z) (z 0))
+(define (grabTail z) (z 1))
+
+(define nums (my-cons 1 2))
+
+(grabHead nums)
+
+(define (alt-cons x y)
+  (lambda (m)
+    (m x y)
+  )
+)
+
+(define (alt-car z)
+  (z (lambda (p q) p))
+)
+
+(define (alt-cdr z)
+  (z (lambda (p q) q))
+)
+
+(define testCons (alt-cons 2 5))
+
+(alt-car testCons)
+(alt-cdr testCons)
+
+;;Modeling numbers as procedures
+(define (add-1 n)
+  (lambda (f)
+    (lambda (x)
+      (f ((n f) x))
+    )
+  )
+)
+
+(define zero (lambda (f) (lambda (x) x)))
+(define one (lambda (f) (lambda (x) (f x))))
+(define two (lambda (f) (lambda (x) (f (f x)))))
+
+;; Implement add procedure
