@@ -108,20 +108,19 @@ fn longest<'a>(x:&'a str, y:&'a str) -> &'a str{
 }
 
 //scheme cons implementation in rust
-//As of now this is not working
-/*
-fn cons<T:Clone, F:Fn(u8) -> T>(x:T, y:T) -> F {
-	return |req:u8| { if req == 1{ return x.clone(); } else{ return y.clone(); } };
+
+fn cons<T:Clone>(x:T, y:T) -> impl Fn(u8) -> T{
+	move |req:u8| -> T { if req == 1{ return x.clone(); } else{ return y.clone(); } }
 }
 
-fn car<T, F:Fn(u8) -> T>(cons:F) -> T{
+fn car<T, F:Fn(u8) -> T>(cons:&F) -> T{
 	cons(1)
 }
 
-fn cdr<T, F:Fn(u8) -> T>(cons: F) -> T{
+fn cdr<T, F:Fn(u8) -> T>(cons:&F) -> T{
 	cons(2)
 }
-*/
+
 fn main() {
 	/*
 	   let coins = vec![coin::Quarter(1965), coin::Quarter(1965),coin::Quarter(1999), coin::Penny, coin::Nickel, coin::Quarter(1960)];
@@ -177,4 +176,8 @@ fn main() {
 	let test = longest("hello", "nope...");
 
 	println!("{}", test);
+
+	let pair = cons(1, 2);
+	println!("{}", car(&pair));
+	println!("{}", cdr(&pair));
 }
