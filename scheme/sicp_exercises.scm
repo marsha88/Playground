@@ -299,3 +299,52 @@ x)
   )
  )
 )
+
+;; Alyssa P. Hacker Solutions
+(define make-interval cons)
+(define lower-bound car)
+(define upper-bound cdr)
+
+(define (add-interval x y)
+  (make-interval (+ (lower-bound x) (lower-bound y))
+                 (+ (upper-bound x) (upper-bound y))))
+(define (sub-interval x y)
+ (make-interval (- (lower-bound x) (lower-bound y))
+                (- (upper-bound x) (upper-bound y)))
+)
+
+(define (mul-interval x y)
+  (let ((p1 (* (lower-bound x) (lower-bound y)))
+        (p2 (* (lower-bound x) (upper-bound y)))
+        (p3 (* (upper-bound x) (lower-bound y)))
+        (p4 (* (upper-bound x) (upper-bound y))))
+    (make-interval (min p1 p2 p3 p4)
+                   (max p1 p2 p3 p4))))
+
+
+(define (div-interval x y)
+  (if (or (= 0 (upper-bound y)) (= 0 (lower-bound y)))
+    (cons 0 0)
+    (mul-interval x
+                  (make-interval (/ 1.0 (upper-bound y))
+                                 (/ 1.0 (lower-bound y))))))
+
+;; Exercise 2.12
+;; Build a procedure make-center-percentage such that given a center and percentage returns a correct interval
+;; Also build a procedure percentage such that given an interval returns the correct interval percentage
+
+(define (center i)
+  (/ (+ (lower-bound i) (upper-bound i)) 2))
+
+(define (make-center-percentage c perc)
+  (let ((percOfC (* c (/ perc 100))))
+    (make-interval (- c percOfC) (+ c percOfC))))
+
+(define (percentage interval)
+  (let ((c (center interval)))
+    ( * 100 (/ (- (upper-bound interval) c) c))))
+
+(lower-bound (make-center-percentage 15 100))
+(upper-bound (make-center-percentage 15 100))
+
+(percentage (make-center-percentage 15 100))
