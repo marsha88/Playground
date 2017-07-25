@@ -1,8 +1,9 @@
-#[warn(dead_code)]
-
+#![warn(dead_code)]
+#![feature(conservative_impl_trait)]
 mod option_copy;
 use option_copy::Optional;
 use option_copy::Optional::*;
+use option_copy::YEAR;
 
 fn add_nums(x:i32, y:i32)->i32{
 	x + y
@@ -31,6 +32,7 @@ fn plus_one(x: Option<i32>) -> Option<i32> {
         Some(i) => Some(i + 1),
     }
 }
+
 enum coin{
 	Penny,
 	Nickel,
@@ -39,7 +41,7 @@ enum coin{
 	Half_Dollar
 }
 
-fn silver_mining(coins:Vec<coin>)->u32{
+fn silver_mining(coins:Vec<coin>) -> u32{
 	/* cycle through coins and determine if they are made of silver*/
 	/* return the number of coins that are silver */
 	let mut count = 0;
@@ -49,7 +51,6 @@ fn silver_mining(coins:Vec<coin>)->u32{
 				count += 1;
 			}
 		}
-
 	}
 	count
 }
@@ -89,6 +90,38 @@ fn giveOptionalVal(num:u32) -> Optional<u32>{
 	return Value(100);
 }
 
+fn first_word<'a>(sentence: &'a str) -> &'a str{
+	let sentenceBytes = sentence.as_bytes();
+	for (i, &item) in sentenceBytes.iter().enumerate(){
+		if item == b' '{
+			return &sentence[..i];
+		}
+	}
+	&sentence[..]
+}
+
+fn longest<'a>(x:&'a str, y:&'a str) -> &'a str{
+	if x.len() < y.len(){
+		return y;
+	}
+	x
+}
+
+//scheme cons implementation in rust
+//As of now this is not working
+/*
+fn cons<T:Clone, F:Fn(u8) -> T>(x:T, y:T) -> F {
+	return |req:u8| { if req == 1{ return x.clone(); } else{ return y.clone(); } };
+}
+
+fn car<T, F:Fn(u8) -> T>(cons:F) -> T{
+	cons(1)
+}
+
+fn cdr<T, F:Fn(u8) -> T>(cons: F) -> T{
+	cons(2)
+}
+*/
 fn main() {
 	/*
 	   let coins = vec![coin::Quarter(1965), coin::Quarter(1965),coin::Quarter(1999), coin::Penny, coin::Nickel, coin::Quarter(1960)];
@@ -129,4 +162,19 @@ fn main() {
 	let myVec:Vec<u32> = vec![1,2,3,4];
 	let myVecTimesTwo:Vec<u32> = myVec.iter().map(|x| x*2).collect();
 	println!("vector times two: {:?}", myVecTimesTwo);
+
+	println!("It was the summer of {}", YEAR);
+
+	println!("{}", dangle());
+	println!("{}", {
+		let mut mouse = 5;
+		mouse += 2;
+		mouse
+	});
+
+
+	println!("{}", first_word("hello world how are you?"));
+	let test = longest("hello", "nope...");
+
+	println!("{}", test);
 }

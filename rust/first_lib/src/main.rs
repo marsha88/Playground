@@ -14,6 +14,9 @@ mod Test{
 /* Trait and Generic Example */
 trait Printable{
 	fn print(&self);
+	fn hello(&self) {
+		println!("hello");
+	}
 }
 
 struct Point{
@@ -54,6 +57,7 @@ fn main(){
 
 	let p1 = Point{ x: 1, y: 7};
 	let p2 = Point{ x: 4, y: 16};
+	p2.hello();
 	let line = Line{ p1, p2 };
 	line.printCoordinates();
 
