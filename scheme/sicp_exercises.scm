@@ -382,7 +382,7 @@ x)
   (reverse-iter y nil)
 )
 
-;;Exercise 2.20 
+;;Exercise 2.20
 (define (same-parity x . y)
   (let ((parity (mod x 2)))
       (define (same-parity-iter remains result)
@@ -396,3 +396,36 @@ x)
 )
 
 (same-parity 1 2 3 4 5 6 7 9 11)
+
+;;Mappppps
+(define (map list proc)
+ (if (null? list) nil
+     (cons (proc (car list)) (map (cdr list) proc))
+     ))
+
+
+(define test-list (list 1 2 3 4 5))
+(map test-list (lambda (x) (* 2 x)))
+
+(define (square-list items)
+  (if (null? items)
+nil
+(cons (* (car items) (car items)) (square-list (cdr items)))))
+
+
+(define (square-list-map items)
+(map items (lambda (x) (* x x))))
+
+
+;; Filter
+(define (filter list proc)
+  (if (null? list) nil
+      (if (proc (car list))
+          (cons (car list) (filter (cdr list) proc))
+          (filter (cdr list) proc))))
+
+;; for-each Exercies 2.23
+(define (for-each list proc)
+  (cond ((null? list) nil)
+      (else (proc (car list))
+            (for-each (cdr list) proc))))
