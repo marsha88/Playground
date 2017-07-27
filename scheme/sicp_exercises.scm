@@ -348,3 +348,51 @@ x)
 (upper-bound (make-center-percentage 15 100))
 
 (percentage (make-center-percentage 15 100))
+
+(define nil 0)
+
+(define my-list (cons 1 (cons 2 (cons 3 (cons 4 nil)))))
+
+(define (list-ref items n)
+  (if (= n 0)
+(car items)
+(list-ref (cdr items) (- n 1))))
+
+;; Append
+(define (append l1 l2)
+(if (null? l1) l2
+(cons (car l1) (append (cdr l1) l2))))
+
+(define list1 (list 1 2 3 4))
+(define list2 (list 5 6 7 8))
+
+(append list1 list2)
+
+;;Last Pair Exercise 2.17
+(define (last-pair x)
+(if (null? (cdr x)) x
+  (last-pair (cdr x))))
+
+;;Reverse (won't compile usig mit/scheme)
+(define nil '())
+(define (reverse y)
+  (define (reverse-iter x res)
+  (if (null? x) res
+    (reverse-iter (cdr x) (cons (car x) res))))
+  (reverse-iter y nil)
+)
+
+;;Exercise 2.20 
+(define (same-parity x . y)
+  (let ((parity (mod x 2)))
+      (define (same-parity-iter remains result)
+        (if (null? remains) (reverse result)
+        (if (= (mod (car remains) 2) parity)
+           (same-parity-iter (cdr remains) (cons (car remains) result))
+           (same-parity-iter (cdr remains) result))
+        ))
+      (same-parity-iter y (list x))
+  )
+)
+
+(same-parity 1 2 3 4 5 6 7 9 11)
