@@ -429,3 +429,40 @@ nil
   (cond ((null? list) nil)
       (else (proc (car list))
             (for-each (cdr list) proc))))
+
+
+(define (count-leaves x)
+  (if (null? x) 0
+    (if (pair? x)
+      (+ (count-leaves (car x)) (count-leaves (cdr x)))
+      1))
+)
+
+;; Exercise 2.25
+(define first (cons 1 (cons 3 (list (list 5 7) 9))))
+(car (cdr (car (cdr (cdr first)))))
+
+(define second (list (list 7)))
+(car (car second))
+
+(define third (list 1 (list 2 (list 3 (list 4 (list 5 (list 6 7)))))))
+(car (cdr (car (cdr (car (cdr (car (cdr (car (cdr (car (cdr third))))))))))))
+
+;;Exercise 2.26
+(define x (list 1 2 3))
+(define y (list 4 5 6))
+(append x y) ;; (1 2 3 4 5 6)
+(cons x y) ;; ((1 2 3) 4 5 6)
+(list x y) ;;((1 2 3) (4 5 6))
+
+;;Exercise 2.27
+(define (deep-reverse list)
+  (define (deep-reverse-iter x res)
+    (if (null? x) res
+      (if (not (pair? x))
+        x ;;return single value
+        (deep-reverse-iter (cdr x) (cons (deep-reverse-iter (car x) nil) res)) ;;return a deep-reverse of the innner list
+      )
+    ))
+    (deep-reverse-iter list nil)
+)
