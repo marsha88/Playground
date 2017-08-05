@@ -466,3 +466,11 @@ nil
     ))
     (deep-reverse-iter list nil)
 )
+
+;; Exercies 2.28
+(define (fringe tree)
+  (if (null? tree) nil
+    (if (pair? (car tree))
+      (if (= (length (car tree)) 1) (car (car tree))
+        (append (fringe (car tree)) (fringe (cdr tree))))
+      (cons (car tree) (fringe (cdr tree))))))
