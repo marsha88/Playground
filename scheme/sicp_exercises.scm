@@ -467,10 +467,28 @@ nil
     (deep-reverse-iter list nil)
 )
 
-;; Exercies 2.28
+;; Exercise 2.28
 (define (fringe tree)
   (if (null? tree) nil
     (if (pair? (car tree))
       (if (= (length (car tree)) 1) (car (car tree))
         (append (fringe (car tree)) (fringe (cdr tree))))
       (cons (car tree) (fringe (cdr tree))))))
+
+
+;;Exercise 2.30
+(define (map-tree tree proc)
+  (cond ((null? tree) nil)
+        ((not (pair? tree)) (proc tree))
+        (else (cons (map-tree (car tree) proc) (map-tree (cdr tree) proc)))))
+
+(define (square-tree tree)
+  (map-tree tree (lambda (x) (* x x))))
+
+
+;; Exercise 2.32
+(define (subsets s)
+  (if (null? s)
+      (list nil)
+      (let ((rest (subsets (cdr s))))
+        (append rest (map (lambda (x) (cons (car s) x)) rest)))))
