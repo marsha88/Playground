@@ -492,3 +492,45 @@ nil
       (list nil)
       (let ((rest (subsets (cdr s))))
         (append rest (map (lambda (x) (cons (car s) x)) rest)))))
+
+;; Sequence functions
+
+(define (reduce op initial plist)
+  (if (null? plist) initial
+    (op (car plist) (reduce op initial (cdr plist)))))
+
+(define (enumerate-range low high)
+  (if (> low high) nil
+    (cons low (enumerate-range (+ 1 low) high))))
+
+(define (map-red p sequence)
+  (reduce (lambda (x y) (cons (p x) y)) nil sequence))
+
+(define (append-red seq1 seq2) (reduce cons seq2 seq1))
+
+(define (length-red sequence) (reduce (lambda (x y) (+ 1 y)) 0 sequence))
+
+(define (count-leaves t)
+  (reduce + 0 (map (lambda (x)
+                     (cond ((null? x) 0)
+                            ((pair? x) (count-leaves x))
+                            (else 1)))
+                t)))
+
+
+
+(define (fold-left op initial sequence)
+  (define (iter result rest)
+    (if (null? rest)
+        result
+        (iter (op result (car rest))
+              (cdr rest))))
+  (iter initial sequence))
+
+
+(define (reverse-right sequence)
+  (reduce (lambda (x y) (append y (cons x '()))) nil sequence))
+
+
+(define (reverse-left sequence)
+  (fold-left (lambda (x y) (cons y x)) nil sequence))
