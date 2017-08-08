@@ -108,7 +108,6 @@ fn longest<'a>(x:&'a str, y:&'a str) -> &'a str{
 }
 
 //scheme cons implementation in rust
-
 fn cons<T:Clone>(x:T, y:T) -> impl Fn(u8) -> T{
 	move |req:u8| -> T { if req == 1{ return x.clone(); } else{ return y.clone(); } }
 }
@@ -119,6 +118,18 @@ fn car<T, F:Fn(u8) -> T>(cons:&F) -> T{
 
 fn cdr<T, F:Fn(u8) -> T>(cons:&F) -> T{
 	cons(2)
+}
+
+fn call_with_one<F>(func:F) -> i32 where F: Fn(i32) -> i32{
+	func(1)
+}
+
+fn call_with_one_dynamic<F>(func:&F) -> i32 where F:Fn(i32)->i32{
+	func(1)
+}
+
+fn add_by(num:i32) -> Box<Fn(i32) -> i32>{
+	Box::new(move |x| num + x)
 }
 
 fn main() {
@@ -174,10 +185,11 @@ fn main() {
 
 	println!("{}", first_word("hello world how are you?"));
 	let test = longest("hello", "nope...");
-
-	println!("{}", test);
-
+	/*
 	let pair = cons(1, 2);
 	println!("{}", car(&pair));
 	println!("{}", cdr(&pair));
+*/
+	let add_by_5 = add_by(5);
+	println!("{:?}", add_by_5(5));
 }
