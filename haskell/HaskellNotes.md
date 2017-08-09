@@ -46,6 +46,65 @@ True
 
 * functions in Haskell cannot start with a capital letter. I don't know what that's all about, but I'll update this when I do.
 
+* Strings in haskell are just character arrays.
+
+* Internally, haskell builds lists using cons operators:
+```
+=> 1:2:3:4:[]
+[1,2,3,4]
+```
+So, you want to concatenate a string for example and you use the ++ operator:
+```
+=> "hello, " ++ "world"
+"hello, world"
+```
+this has to recreate the entire string character by character, but prepending elements using the `:`
+operator is done instantly because wrapping the existing list in another cons is very quick and easy to do
+and still remains immutable.
+
+```
+=> 'c':"layton"
+"clayton"
+
+=> [1,2,3,4] ++ 5     -- this errors because items that are appended need to be lists themselves
+=> [1,2,3,4] ++ [5]   -- this fixes the error from above
+[1,2,3,4,5]
+```
+
+#### More List Operations
+```
+=> let list = [1,2,3,4]
+=> null list
+False
+=> null []
+True
+=> take 2 list
+[1,2]
+=> take 1000 list
+[1,2,3,4]
+=> take 0 list
+[]
+=> reverse list
+[4,3,2,1]
+=> minimum list
+1
+=> maximum list
+4
+=> sum list
+10
+=> product list
+24
+=> elem 4 list  -- checks if 4 is an element in list
+True
+
+```
+* The functions we have been using can also be used as infix by using backticks
+```
+=> elem 3 list
+True
+=> 3 `elem` list
+True
+```
 #### Expressions in Haskell
 5
 5 + 4
