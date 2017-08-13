@@ -1,5 +1,5 @@
-mod traits;
-pub use self::traits::Print;
+pub mod traits;
+use self::traits::Print;
 
 pub struct MyInt {
     val: i32
