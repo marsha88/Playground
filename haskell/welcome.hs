@@ -15,3 +15,9 @@ doubleUs x y = doubleMe x + doubleMe y
 doubleSmallNumber x = if x > 100
   then x
   else x * 2
+
+getFirstXMultiplesOfY x y = take x [y, (y+y)..]
+
+giveXRepeatsOfY x y = take x (repeat y)
+
+giveXCyclesOfY x y = take x (cycle y)

@@ -96,7 +96,14 @@ True
 24
 => elem 4 list  -- checks if 4 is an element in list
 True
-
+=> drop 2 list    -- removes the first two elements from list (does not mutate list)
+[2,1]
+=> [1,2,3] == [1,2,3] -- regular comparison operators can be used on lists as long as the elements inside them can be compared.
+True
+=> [1..5]  --ranges
+[1,2,3,4,5]
+=> [2,4..20]  -- ranges with pattern specifications. Start with first two elements of list and upper bound.
+[2,4,6,8,10,12,14,16,18,20]
 ```
 * The functions we have been using can also be used as infix by using backticks
 ```
