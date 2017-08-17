@@ -19,6 +19,8 @@ pub enum Coins {
 }
 
 //using iterators to make nicer abstactions and invoking an if let pattern matching conditional
+/*
 pub fn silver_quarters(coins: Vec<Coins>) -> Vec<Coins> {
-    coins.iter().filter(|coin| Coins::Quarter(n) = coin).collect()
+    coins.iter().filter(|coin| Coins::Quarter(n) = coin).collect();
 }
+*/

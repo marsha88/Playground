@@ -117,3 +117,23 @@ True
 5 + 4
 if x < 100 then x else x * 2
 "hello, world"
+
+#### Types and Typeclasses
+```
+ghci> :t (==)  
+(==) :: (Eq a) => a -> a -> Bool  
+```
+* Everything before the `=>` in the definition of the `==` function is a class constraint. In this case it says that
+  a must be a member of the Eq class.
+* Take a look at [this](http://learnyouahaskell.com/types-and-typeclasses) to see a list of built in typeclasses.
+* You can use explicit type annotations by using the `::` operator
+```
+sumThree :: Int -> Int -> Int -> Int
+sumThree x y z = x + y + z
+
+=> minBound :: Int
+-9223372036854775808
+
+=> maxBound :: Bool
+True
+```
