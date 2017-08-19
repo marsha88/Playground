@@ -203,3 +203,54 @@ bmiTell weight height
   ```
    - keep in mind you can still using all the fun pattern matching techniques within the `where` block.
    - even more impressive is that you can define functions inside the where block as well.
+
+#### Let
+```haskell
+-- standard let in expression
+let a = 5 in a + 3  
+```
+* let expressions can be used anywhere you've been using expressions in the past.
+```haskell
+[let square x = x * x in (square 5, square 3, square 2)]
+```
+
+ - multiple variable declarations using let
+ ```haskell
+  let a = 100
+      b = 200
+      c = 300 in a + b + c
+ ```
+ - inline multiple variable declarations
+ ```haskell
+ -- the last semi-colon is optional.
+ let a = 100; b = 200; in a + b
+ ```
+* The names defined in a let inside a list comprehension are visible to the output function (the part before the |) and all predicates and sections that come after of the binding. The variable is bound only to that comprehension so no `in` statement is needed.
+```haskell
+calcBmis :: (RealFloat a) => [(a, a)] -> [a]  
+calcBmis xs = [bmi | (w, h) <- xs, let bmi = w / h ^ 2]
+```
+* The in part can also be omitted when defining functions and constants directly in GHCi. If we do that, then the names will be visible throughout the entire interactive session.
+
+#### Case Expressions
+Remember patten matching functions? Well, that was all syntactic sugar for case expressions.
+```haskell
+  -- general form of case expression.
+  case expression of pattern -> result  
+                     pattern -> result  
+                     pattern -> result
+```
+- the below two code blocks compute their solutions in the exact same way.
+```haskell
+-- syntactic sugar
+head' :: [a] -> a  
+head' [] = error "No head for empty lists!"  
+head' (x:_) = x
+```
+```haskell
+-- case expression
+head' :: [a] -> a  
+head' xs = case xs of [] -> error "No head for empty lists!"  
+                      (x:_) -> x
+```
+* just like pattern matching functions case expressions must be exhaustive.

@@ -102,3 +102,22 @@ a `myCompare` b
 calcBmis :: (RealFloat a) => [(a,a)] -> [String]
 calcBmis hw = [bmiTell (bmi x) | x <- hw]
   where bmi (weight, height) = weight / height ^ 2
+
+
+-- let expressions
+getASum = let a = 5; b = 3; c = 2
+          in a + b + c
+
+add100Plus200 =  let a = 100
+                     b = 200
+                 in a + b
+
+
+
+-- case expressions
+listLength xs = "The list contains " ++ case xs of [] -> "Nothing."
+                                                   [_] -> "one item."
+                                                   _ -> "more than one item."
+-- another approach.
+listLength2 xs = "The list contains " ++ (des xs)
+  where des [] = "Nothing"; des [x] = "One Item"; des y = "more than one item"
