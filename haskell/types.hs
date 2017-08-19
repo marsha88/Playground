@@ -80,10 +80,10 @@ capital all@(x:xs) = "The first letter in " ++ all ++ " is " ++ [x]
 -- otherwise is the same as True so it is the 'catch all'
 bmiTell :: (RealFloat a) => a -> String
 bmiTell bmi
-    | bmi <= 18.5 = "You're underweight, you emo, you!"
-    | bmi <= 25.0 = "You're supposedly normal. Pffft, I bet you're ugly!"
-    | bmi <= 30.0 = "You're fat! Lose some weight, fatty!"
-    | otherwise   = "You're a whale, congratulations!"
+    | bmi <= 18.5 = "underweight"
+    | bmi <= 25.0 = "normal"
+    | bmi <= 30.0 = "overweight"
+    | otherwise   = "...."
 
 -- making use of the where block
 initials :: String -> String -> String
