@@ -137,3 +137,16 @@ sumThree x y z = x + y + z
 => maxBound :: Bool
 True
 ```
+
+#### Pattern Matching
+* You can use pattern matching on functions to avoid large trees of if else. Similar to rust pattern matching, if you do
+  pattern match you must exhaust all cases.
+```
+sayMe :: (Integral a) => a -> String  
+sayMe 1 = "One!"  
+sayMe 2 = "Two!"  
+sayMe 3 = "Three!"  
+sayMe 4 = "Four!"  
+sayMe 5 = "Five!"  
+sayMe x = "Not between 1 and 5"
+```
