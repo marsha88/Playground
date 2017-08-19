@@ -75,3 +75,30 @@ sum' (x:xs) = x + sum' xs
 capital :: String -> String
 capital "" = "Empty String!"
 capital all@(x:xs) = "The first letter in " ++ all ++ " is " ++ [x]
+
+-- guards
+-- otherwise is the same as True so it is the 'catch all'
+bmiTell :: (RealFloat a) => a -> String
+bmiTell bmi
+    | bmi <= 18.5 = "You're underweight, you emo, you!"
+    | bmi <= 25.0 = "You're supposedly normal. Pffft, I bet you're ugly!"
+    | bmi <= 30.0 = "You're fat! Lose some weight, fatty!"
+    | otherwise   = "You're a whale, congratulations!"
+
+-- making use of the where block
+initials :: String -> String -> String
+initials firstname lastname = [f] ++ "." ++ [l]
+  where (f:_) = firstname
+        (l:_) = lastname
+
+-- another guards example that also shows how to write infix functions.
+myCompare :: (Ord a) => a -> a -> Ordering
+a `myCompare` b
+    | a > b     = GT
+    | a == b    = EQ
+    | otherwise = LT
+
+-- given a list calculates bmi of each given height and weight pair. Produces a list of insults as given by bmiTell.
+calcBmis :: (RealFloat a) => [(a,a)] -> [String]
+calcBmis hw = [bmiTell (bmi x) | x <- hw]
+  where bmi (weight, height) = weight / height ^ 2

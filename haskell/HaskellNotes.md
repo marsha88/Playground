@@ -106,7 +106,7 @@ True
 [2,4,6,8,10,12,14,16,18,20]
 ```
 * The functions we have been using can also be used as infix by using backticks
-```
+```haskell
 => elem 3 list
 True
 => 3 `elem` list
@@ -119,7 +119,7 @@ if x < 100 then x else x * 2
 "hello, world"
 
 #### Types and Typeclasses
-```
+```haskell
 ghci> :t (==)  
 (==) :: (Eq a) => a -> a -> Bool  
 ```
@@ -127,7 +127,7 @@ ghci> :t (==)
   a must be a member of the Eq class.
 * Take a look at [this](http://learnyouahaskell.com/types-and-typeclasses) to see a list of built in typeclasses.
 * You can use explicit type annotations by using the `::` operator
-```
+```haskell
 sumThree :: Int -> Int -> Int -> Int
 sumThree x y z = x + y + z
 
@@ -141,7 +141,7 @@ True
 #### Pattern Matching
 * You can use pattern matching on functions to avoid large trees of if else. Similar to rust pattern matching, if you do
   pattern match you must exhaust all cases.
-```
+```haskell
 sayMe :: (Integral a) => a -> String  
 sayMe 1 = "One!"  
 sayMe 2 = "Two!"  
@@ -150,3 +150,56 @@ sayMe 4 = "Four!"
 sayMe 5 = "Five!"  
 sayMe x = "Not between 1 and 5"
 ```
+
+##### Pattern Matching with Tuples and Lists
+```haskell
+-- Pattern Matching a tuple to implement fst for tri-tuples
+first :: (a, b, c) -> a
+first (x, _, _) = x
+
+-- Pattern Matching to implement head function for lists
+head :: [a] -> a
+head [] = error "Your list has been decapitated..."
+--this gives you x being the first element and xs being the rest of the list.
+head (x:xs) = x
+```
+* Read through types.hs to see more examples of pattern matching with lists and tuples
+
+##### Guards
+- guards are a nice way to avoid huge if  else trees.
+```haskell
+bmiTell weight height  
+    | weight / height ^ 2  <= 18.5 = "You're underweight, you emo, you!"  
+    | weight / height ^ 2  <= 25.0 = "You're supposedly normal. Pffft, I bet you're ugly!"  
+    | weight / height ^ 2  <= 30.0 = "You're fat! Lose some weight, fatty!"  
+    | otherwise   = "You're a whale, congratulations!"  
+```  
+- it's important to see that the `=` sign doesn't come until the guard arms. You are not writing out an if else
+  within the bmiTell function. It is more accurate to say you are defining many versions of the function given
+  the guards you have set up. It's pattern matching with conditionals.
+- adding a `where` block to this could clean things up a bit to avoid repetition
+
+```haskell
+bmiTell weight height  
+    | bmi <= 18.5 = "You're underweight, you emo, you!"  
+    | bmi <= 25.0 = "You're supposedly normal. Pffft, I bet you're ugly!"  
+    | bmi <= 30.0 = "You're fat! Lose some weight, fatty!"  
+    | otherwise   = "You're a whale, congratulations!"
+    where bmi = weight / height ^ 2
+```
+- We can take this even further and add more variables to the where block. If multiple variables do exist within the
+  `where` block it does need to be indented properly or haskell will throw a fit.
+
+  ```haskell
+  bmiTell weight height  
+      | bmi <= skinny = "You're underweight, you emo, you!"  
+      | bmi <= normal = "You're supposedly normal. Pffft, I bet you're ugly!"  
+      | bmi <= fat = "You're fat! Lose some weight, fatty!"  
+      | otherwise   = "You're a whale, congratulations!"
+      where bmi = weight / height ^ 2
+            skinny = 18.5
+            normal = 25.0
+            fat = 30.0
+  ```
+   - keep in mind you can still using all the fun pattern matching techniques within the `where` block.
+   - even more impressive is that you can define functions inside the where block as well.
