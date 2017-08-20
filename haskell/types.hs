@@ -112,7 +112,9 @@ add100Plus200 =  let a = 100
                      b = 200
                  in a + b
 
-
+{-
+  Oh yeah... this is how you do multi-line comments.
+-}
 
 -- case expressions
 listLength xs = "The list contains " ++ case xs of [] -> "Nothing."

@@ -169,10 +169,10 @@ head (x:xs) = x
 - guards are a nice way to avoid huge if  else trees.
 ```haskell
 bmiTell weight height  
-    | weight / height ^ 2  <= 18.5 = "You're underweight, you emo, you!"  
-    | weight / height ^ 2  <= 25.0 = "You're supposedly normal. Pffft, I bet you're ugly!"  
-    | weight / height ^ 2  <= 30.0 = "You're fat! Lose some weight, fatty!"  
-    | otherwise   = "You're a whale, congratulations!"  
+    | weight / height ^ 2  <= 18.5 = "underweight"  
+    | weight / height ^ 2  <= 25.0 = "normal."  
+    | weight / height ^ 2  <= 30.0 = "overweight"  
+    | otherwise   = "..."  
 ```  
 - it's important to see that the `=` sign doesn't come until the guard arms. You are not writing out an if else
   within the bmiTell function. It is more accurate to say you are defining many versions of the function given
@@ -181,10 +181,10 @@ bmiTell weight height
 
 ```haskell
 bmiTell weight height  
-    | bmi <= 18.5 = "You're underweight, you emo, you!"  
-    | bmi <= 25.0 = "You're supposedly normal. Pffft, I bet you're ugly!"  
-    | bmi <= 30.0 = "You're fat! Lose some weight, fatty!"  
-    | otherwise   = "You're a whale, congratulations!"
+    | bmi <= 18.5 = "underweight"  
+    | bmi <= 25.0 = "normal."  
+    | bmi <= 30.0 = "overweight"  
+    | otherwise   = "..."
     where bmi = weight / height ^ 2
 ```
 - We can take this even further and add more variables to the where block. If multiple variables do exist within the
@@ -192,10 +192,10 @@ bmiTell weight height
 
   ```haskell
   bmiTell weight height  
-      | bmi <= skinny = "You're underweight, you emo, you!"  
-      | bmi <= normal = "You're supposedly normal. Pffft, I bet you're ugly!"  
-      | bmi <= fat = "You're fat! Lose some weight, fatty!"  
-      | otherwise   = "You're a whale, congratulations!"
+      | bmi <= skinny = "underweight"  
+      | bmi <= normal = "normal"  
+      | bmi <= fat = "overweight"  
+      | otherwise   = "..."
       where bmi = weight / height ^ 2
             skinny = 18.5
             normal = 25.0
