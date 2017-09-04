@@ -35,6 +35,13 @@ elementAt'' (_:xs) ith
 	| ith < 1 = error "Invalid Index"
 	| otherwise = elementAt'' xs (ith-1)
 
+-- Problem 4: return length of list
+length' :: [a] -> Int
+length' [] = 0
+length' (x:xs) = 1 + length' xs
 
-
+-- Problem 5: reverse the given list
+reverse' :: [a] -> [a]
+reverse' [] = []
+reverse' (x:xs) = reverse' xs ++ [x]
 
