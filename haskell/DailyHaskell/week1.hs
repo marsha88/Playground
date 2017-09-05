@@ -45,3 +45,9 @@ reverse' :: [a] -> [a]
 reverse' [] = []
 reverse' (x:xs) = reverse' xs ++ [x]
 
+-- Problem 6: check for palindrome
+palindrome' :: (Eq a) => [a] -> Bool
+palindrome' x = x == (reverse' x)
+
+
+
