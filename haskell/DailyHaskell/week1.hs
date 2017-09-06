@@ -50,4 +50,23 @@ palindrome' :: (Eq a) => [a] -> Bool
 palindrome' x = x == (reverse' x)
 
 
+-- Problem 7: flatten-list
+
+-- Problem 8: compress list
+
+-- solution #1
+compress' :: (Eq a) => [a] -> [a]
+compress' [] = []
+compress' x = compressIter [] x
+
+compressIter :: (Eq a) => [a] -> [a] -> [a]
+compressIter clist [] = clist
+compressIter clist (x:xs) 
+	| elem x clist = compressIter clist xs 
+	| otherwise = compressIter  (clist ++ [x]) xs  
+
+-- solution #2
+compress'' :: (Eq a) => [a] -> [a]
+compress'' [] = []
+compress'' (x:xs) = x:(compress'' (filter (/=x) xs))
 
