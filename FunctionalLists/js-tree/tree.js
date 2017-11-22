@@ -34,7 +34,19 @@ const nodeVal = (tree) => {
 	});
 };
 
-let testTree = tree(5, tree(3, nullNode, nullNode), tree(8, nullNode, nullNode));
+const printTree = tree => {
+	if(!isNull(tree)){
+		tree((value, left, right) => {
+			printTree(left);
+			printTree(right);
+			console.log(value);
+		});		
+	}
+};
 
 
+
+const testTree = tree(5, tree(3, nullNode, nullNode), tree(8, nullNode, nullNode));
+
+printTree(testTree);
 
