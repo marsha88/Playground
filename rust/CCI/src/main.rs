@@ -27,65 +27,27 @@ use std::io;
 use std::io::prelude::*;
 use std::string::*;
 
-enum db_command {
-	SET(String, i32),
-	GET(String),
-	UNSET(String),
-	NUMEQUALTO(i32),
-	END,
-	BEGIN,
-	ROLLBACK,
-	COMMIT
-}
+/* Need:
 
-/* test validity of given command and parse command */
-fn is_valid_command(command: &Vec<&str>) -> Result<db_command, &'static str> {
-	println!("{}", command[0]);
-	match command[0] {
-		"SET" =>
-			if command.len() == 3 {
-				// return what is returned from parse_key_val
-			}
-			else {
-				Err("Incorrect number of arguments for {} command", command[0])
-			}
-		"GET" => ,
-		"UNSET" => true,
-		_ => Err("Unrecognized Command")
-	}
-}
+*/
 
-fn main() {
-	let mut a_str = String::new();
-	io::stdin().read_line(&mut a_str).expect("read error");
-	let mut command_and_args = a_str.split_whitespace()
-	  								.collect::<Vec<&str>>();
-	if(is_valid_command(&command_and_args)) {
-		println!("VALID.");
+fn shortest(grid:&Vec<Vec<i32>>, pos:(usize, usize), dv:i32, path:Vec<(usize, usize)>) -> Vec<(usize, usize)> {
+	let (x, y) = pos;
+	if grid[x][y] == dv {
+		path
 	}
 	else {
-		println!("INVALID.");
+		//return min path returned from each neighbor.
 	}
-
-	/*
-    let stdin = io::stdin();
-    for line in stdin.lock().lines() {
-		let mut iter = line.split_whitespace();
-		assert_eq!(Some("SET"), iter.next());
-		assert_eq!(Some("a"), iter.next());
-		assert_eq!(Some("15"), iter.next());
-		println("{:?}", iter.collect());
-    }*/
 }
 
-/*
-	SIMPLE DB TODOS:
-	1.) parse command and arguments
-	2.) determine if command is valid and if args are valid
-	3.) add global stack that contains all sessions. (Add current session to stack when begin is called)
-	4.) set up two hashtables for each 'session'
+fn shortest_path(grid:&Vec<Vec<i32>>) -> Vec<(usize, usize)> {
+	let start_pos = (0, 0);
+	let desired_val = 5;
+	shortest(grid, (0,0), desired_val, vec![start_pos])
+}
 
 
-	Useful links:
-	- parsing line from stdin: https://users.rust-lang.org/t/reading-and-parsing-a-line-from-stdin-containing-3-integers/7265
-*/
+fn main() {
+	println!("Running Shortest Path.");
+}
