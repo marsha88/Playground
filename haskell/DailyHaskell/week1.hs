@@ -18,22 +18,22 @@ almostLast' (_:xs) = almostLast' xs
 -- solution attempt #1
 elementAt' :: [a] -> Int -> a
 elementAt' elms ith
-	| length elms < ith = error "Not enough items"
-	| ith < 1 = error "invalid index requested"
-	| otherwise = elementAtIter elms ith 1
+  | length elms < ith = error "Not enough items"
+  | ith < 1 = error "invalid index requested"
+  | otherwise = elementAtIter elms ith 1
 
 elementAtIter :: [a] -> Int -> Int -> a
 elementAtIter (x:xs) ith current
-	| ith == current = x
-	| otherwise = elementAtIter xs ith (current+1)
+  | ith == current = x
+  | otherwise = elementAtIter xs ith (current+1)
 
 -- solution attempt #2
 elementAt'' :: [a] -> Int -> a
 elementAt'' (x:_) 1 = x
 elementAt'' [] _ = error "No items"
 elementAt'' (_:xs) ith
-	| ith < 1 = error "Invalid Index"
-	| otherwise = elementAt'' xs (ith-1)
+  | ith < 1 = error "Invalid Index"
+  | otherwise = elementAt'' xs (ith-1)
 
 -- Problem 4: return length of list
 length' :: [a] -> Int
@@ -51,6 +51,10 @@ palindrome' x = x == (reverse' x)
 
 
 -- Problem 7: flatten-list
+flattenList' :: [[a]] -> [a]
+flattenList' []     = []
+flattenList' [[]]   = []
+flattenList' (x:xs) = x ++ flattenList' xs
 
 -- Problem 8: compress list
 
@@ -61,12 +65,17 @@ compress' x = compressIter [] x
 
 compressIter :: (Eq a) => [a] -> [a] -> [a]
 compressIter clist [] = clist
-compressIter clist (x:xs) 
-	| elem x clist = compressIter clist xs 
-	| otherwise = compressIter  (clist ++ [x]) xs  
+compressIter clist (x:xs)
+  | elem x clist = compressIter clist xs
+  | otherwise = compressIter  (clist ++ [x]) xs
 
 -- solution #2
 compress'' :: (Eq a) => [a] -> [a]
 compress'' [] = []
 compress'' (x:xs) = x:(compress'' (filter (/=x) xs))
 
+-- Problem 9: pack List
+pack' :: (Eq a) => [a] -> [[a]]
+pack' [] = [[]]
+pack' [x] = [[x]]
+pack' full@(x:xs) = [[y | y <- full, x == y]] ++ pack' [y | y <- full, x /= y]
