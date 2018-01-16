@@ -48,3 +48,12 @@ quicksort (x:xs) = smallSorted ++ [x] ++ bigSorted
 map' :: (a -> b) -> [a] -> [b]
 map' _ [] = []
 map' f (x:xs) = (f x) : (map' f xs)
+
+foldl' :: (b -> a -> b) -> b -> [a] -> b
+foldl' _ i []     = i
+foldl' f i (x:xs) = foldl' f (f i x) xs
+
+foldr' :: (b -> a -> b) -> b -> [a] -> b
+foldr' _ i []     = i
+foldr' f i (x:xs) = f (foldr' f i xs)  x
+
