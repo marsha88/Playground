@@ -170,3 +170,14 @@ let b = 'test';
 console.log(a);
 console.log(b);
 
+
+
+/* functional conditionals */
+const btrue  = (t, f) => t
+const bfalse = (t, f) => f
+const band   = (b1, b2) => b1(b2, bfalse)
+const bor    = (b1, b2) => b1(btrue, b2)
+const ifelse = (b, t, e) => b(t, e)
+
+const p = ifelse(bor(btrue, bfalse), 5, "clayton")
+console.log("a = ", p)

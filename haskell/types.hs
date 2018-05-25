@@ -123,3 +123,6 @@ listLength xs = "The list contains " ++ case xs of [] -> "Nothing."
 -- another approach.
 listLength2 xs = "The list contains " ++ (des xs)
   where des [] = "Nothing"; des [x] = "One Item"; des y = "more than one item"
+
+data Color = Blue | Green | Red
+

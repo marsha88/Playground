@@ -64,3 +64,5 @@ zip ["one", "two"] [1,2]  --returns [("one",1),("two",2)]
 
 -- all right triangles whose perimeter is == 24 and whose sides are <= 10
 let triangles = [(a,b,c) | c <- [1..10], b <- [1..c], a <- [1..b], a^2 + b^2 == c^2, a+b+c == 24]
+
+data Color = Blue | Green | Red
