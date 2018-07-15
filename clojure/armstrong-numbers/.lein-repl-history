@@ -1,0 +1,157 @@
+(load-file "src/armstrong_numbers.clj")
+(num-digits 100)
+(load-file "src/armstrong_numbers.clj")
+(num-digits 100)
+(doc armstrong?)
+(armstrong? 5)
+(load-file "src/armstrong_numbers.clj")
+(defn num-digits [num]
+  (if (>= num 1)
+  (inc (num-digits (/ num 10)))
+  0)
+)
+(num-digits 100)
+(num-digits 10)
+(num-digits 100000)
+(num-digits 0)
+(num-digits -123)
+(num-digits 78)
+(load-file "src/armstrong_numbers.clj")
+(num-digits
+5)
+(load-file "./armstrong_numbers.clj")
+(load-file "armstrong_numbers.clj")
+(load-file "test.clj")
+(load-file "src/test.clj")
+(ide 5)
+(load-file "src/armstrong_numbers.clj")
+(num-digits 10)
+(load-file "src/armstrong_numbers.clj")
+(ide
+5)
+(range 0 10000)
+(def a (map (partial * 2) (filter even? (range 0 10000))))
+(time (get a 4))
+(get a 0)
+a
+(time (def b (map (partial * 2) (filter even? (range 0 10000)))))
+(time (first b))
+(time (second b))
+(/ 91 10)
+(Integer (/ 91 10))
+(Integer. (/ 91 10))
+(int (/ 91 10))
+(abs -8)
+(doc abs)
+(Math/abs -9)
+(load-file "src/armstrong_numbers.clj")
+(num-digits 5)
+(defn num-digits [n]
+  (loop [i n, digits 1]
+    (if (= (int i) 0)
+        digits
+        (recur (/ i 10) (inc digits)))))
+(num-digits 90)
+(defn num-digits [n]
+  (if (= (int n) 0) 1
+    (loop [i n, digits 0]
+      (if (= (int i) 0)
+          digits
+          (recur (/ i 10) (inc digits))))))
+(num-digits 10)
+(num-digits 100)
+(num-digits 101)
+(num-digits -101)
+(num-digits 0)
+(num-digits 1)
+(doc pow)
+(doc exp)
+(rem 91 10)
+(rem -91 10)
+(mod -91 10)
+(rem -91 10)
+(defn get-digits [n]
+  "Given a number returns the number of digits the number contains
+  (num-digits 100) ;; => 3
+  (num-digits 0) ;; => 1"
+  (if (= (int n) 0) 1
+    (loop [i n, digits '()]
+      (if (= (int i) 0)
+          digits
+          (recur (/ i 10) (cons (rem i 10) digits))))))
+(get-digits 10)
+(get-digits 109)
+(defn get-digits [n]
+  "Given a number returns the number of digits the number contains
+  (num-digits 100) ;; => 3
+  (num-digits 0) ;; => 1"
+  (if (= (int n) 0) 1
+    (loop [i n, digits '()]
+      (if (= (int i) 0)
+          digits
+          (recur (/ i 10) (cons (int (rem i 10)) digits))))))
+(get-digits 106)
+(get-digits 109)
+(get-digits 0)
+(defn get-digits [n]
+  "Given a number returns the number of digits the number contains
+  (num-digits 100) ;; => 3
+  (num-digits 0) ;; => 1"
+  (if (= (int n) 0) '(0)
+    (loop [i n, digits '()]
+      (if (= (int i) 0)
+          digits
+          (recur (/ i 10) (cons (int (rem i 10)) digits))))))
+(get-digits 167)
+(get-digits 0)
+(load-file "src/armstrong_numbers.clj")
+(doc sum)
+(add '(1 2 3))
+(reduce + '(1 2 3))
+(load-file "src/armstrong_numbers.clj")
+(armstrong? 9)
+(defn pow-of [exp n]
+  "Because I can't find the built-in function and I'm lazy"
+  (reduce * (repeat n exp)))
+;; TODO: make this work with negative nums.
+(defn get-digits [n]
+  "Given a number n, returns the digits of n in a list"
+  (if (= (int n) 0) '(0)
+    (loop [i n, digits '()]
+      (if (= (int i) 0)
+          digits
+          (recur (/ i 10) (cons (int (rem i 10)) digits))))))
+(defn sum [xs] (reduce + xs))
+(defn armstrong? [n]
+  (let [digits (get-digits n)]
+    (= n (sum (map (partial pow-of (count digits)) digits)))))
+(armstrong? 9)
+(armstrong? 10)
+(get-digits 9)
+(count (get-digits 9))
+(def tothe (partial pow-of 1))
+(tothe 7)
+(tothe 8)
+(repeat 8 1)
+(defn pow-of [exp n]
+  "Because I can't find the built-in function and I'm lazy"
+  (reduce * (repeat exp n)))
+;; TODO: make this work with negative nums.
+(defn get-digits [n]
+  "Given a number n, returns the digits of n in a list"
+  (if (= (int n) 0) '(0)
+    (loop [i n, digits '()]
+      (if (= (int i) 0)
+          digits
+          (recur (/ i 10) (cons (int (rem i 10)) digits))))))
+(defn sum [xs] (reduce + xs))
+(defn armstrong? [n]
+  (let [digits (get-digits n)]
+    (= n (sum (map (partial pow-of (count digits)) digits)))))
+(armstrong? 9)
+(armstrong? 10)
+(rem 109 10)
+(rem 109 100)
+(get-digits -91)
+(armstrong? -10)
+(armstrong? -9)
