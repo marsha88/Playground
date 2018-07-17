@@ -97,7 +97,13 @@
                             (println i)))))
             (recur (inc i))))))
 
+(defn map-rows [rows keys]
+  )
 
+(defn csv-parse
+  [filename & rows]
+  (let [contents (slurp filename)]
+    (map-rows (map (fn [row] (clojure.string/split row #",")) (clojure.string/split contents #"\n")))))
 
 (defn -main
   [& args]
