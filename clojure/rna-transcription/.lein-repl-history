@@ -49,3 +49,13 @@
 (clojure.string/replace "C" "T" "U")
 (defn to-rna [dna-strand]
   (str/replace dna-strand "T" "U"))
+(time (clojure.string/join (map identity "hello")))
+(time (apply str (map identity "hello")))
+(time (clojure.string/join (map identity "hello")))
+(def long-string (clojure.join (take 300 (repeat "w"))))
+(def long-string (clojure.string/join (take 300 (repeat "w"))))
+long-string
+(time (clojure.string/join (map identity long-string)))
+(time (apply str (map identity long-string)))
+(time (clojure.string/join (map identity long-string)))
+(time (apply str (map identity long-string)))
