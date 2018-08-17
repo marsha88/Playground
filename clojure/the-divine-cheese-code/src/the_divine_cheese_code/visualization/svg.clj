@@ -13,6 +13,17 @@
 (def min (comparator-over-maps clojure.core/min [:lat :lng]))
 (def max (comparator-over-maps clojure.core/max [:lat :lng]))
 
+(defn translate-to-00
+  [locations]
+  (let [mincoords (min locations)]
+    (map (fn [coord] (merge-with - coord mincoords)) locations)))
+
+(defn scale
+  [width height locations]
+  (let [maxcoords (max locations)
+        ratio {:lat (/ height (:lat maxcoords))
+               :lng (/height (:lng maxcoords))}]
+        (map (fn [coord] (merge-with * coord ratio)) locations)))
 
 (defn latlng->point
   "Convert lat/lng map to comma-separated string"
