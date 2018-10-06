@@ -1,5 +1,5 @@
 (ns run-length-encoding
-  (:require [clojure.string :as s]))
+  (:require [clojure.string :as string]))
 
 (defn run-length-encode
   "Encodes a string with run-length-encoding"
@@ -25,8 +25,8 @@
   ([cipher-text] (run-length-decode cipher-text ""))
   ([cipher-text decoding]
     (if (= 0 (count cipher-text)) decoding
-        (let [num (s/join (take-while char-num? cipher-text))
+        (let [num (string/join (take-while char-num? cipher-text))
               rem-cipher (drop (count num) cipher-text)]
               (if (empty? num)
                   (recur (drop 1 rem-cipher) (str decoding (first rem-cipher)))
-                  (recur (drop 1 rem-cipher) (str decoding (s/join (repeat (read-string num) (first rem-cipher))))))))))
+                  (recur (drop 1 rem-cipher) (str decoding (string/join (repeat (read-string num) (first rem-cipher))))))))))
