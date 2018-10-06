@@ -4,12 +4,19 @@
 const curryN = (n, fn) => {
   return function() {
     if(arguments.length < fn.length) {
-      return f.bind(null, ...arguments)
+      return fn.bind(null, ...arguments)
     }
     else {
-      return f.apply(null, arguments)
+      return fn.apply(null, arguments)
     }
   }
 }
+
+
+const product = (...args) => args.reduce((acc, x) => acc * x, 1)
+const mul = curryN(2, product)
+
+let a =
+a
 
 module.exports = curryN
