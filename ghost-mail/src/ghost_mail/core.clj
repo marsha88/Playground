@@ -1,28 +1,45 @@
 (ns ghost-mail.core
   (:use [hickory.core])
-  (:require [clj-http.client :as client]
-            [hickory.select :as s])
+  (:require
+   [clojure.core.reducers :as r]
+   [clj-http.client :as client]
+   [hickory.select :as s]
+   [digest])
   (:gen-class))
 
 (def base-url "https://privatix-temp-mail-v1.p.rapidapi.com/request/mail/id/")
 
-(def headers {:X-RapidAPI-Host "privatix-temp-mail-v1.p.rapidapi.com"})
+(def headers {"X-RapidAPI-Host" "privatix-temp-mail-v1.p.rapidapi.com"
+              "X-RapidAPI-Key" "adbc8ccf14msh80799d1612132b9p16c604jsndfa6cd074d91"})
 
-(def email-hash "3eeb8bb533aa950707346a0f54f1be6f")
+(defn email-request [email-hash]
+  "Given an md5 hash of a provided email - makes request for all messages in inbox"
+  (:body (client/get (str base-url email-hash "/")
+                     {:headers headers
+                      :cookie-policy :ignore-cookies
+                      :as :json})))
 
-(defn json-req []
-  (println (client/get "https://jsonplaceholder.typicode.com/todos/1" {:as :json})))
+(defn format-email [{error :error
+                     from :mail_from
+                     subject :mail_subject
+                     message :mail_text}]
+  (println error)
+  (if error
+    "Inbox Empty"
+    (str "From: " from "\nSubject: " subject "\n\n" message "\n\n")))
 
-(defn email-request []
-  (client/get (str base-url email-hash)
-              {:headers {:X-RapidAPI-Host "privatix-temp-mail-v1.p.rapidapi.com"
-                         :X-RapidAPI-Key "e0ffd881b7msh7fbc6f379154dbfp1ddc80jsnd9761dc94716"}
-               :as :json
-               :debug true}))
+(defn format-inbox [emails]
+  (r/fold str (map format-email emails)))
 
-;; Scraping temp-email site for new email address
+(defn print-inbox [email]
+  (let [api-resp (-> email digest/md5 email-request)]
+    (if (:error api-resp)
+      (println "\n\n\nInbox Empty\n\n\n")
+      (println (format-inbox api-resp)))))
+
 (defn generate-email []
-  (let [parsed-html (-> (client/get "https://temp-mail.org/en/")
+  "Scrapes the temp-email site for new email address - returns the email as a string"
+  (let [parsed-html (-> (client/get "https://temp-mail.org/en/" {:cookie-policy :standard})
                         :body
                         parse
                         as-hickory)
@@ -32,6 +49,17 @@
                           :value)]
     email-address))
 
+(defn print-new-email [email]
+  (println (str "Temporary Email: " email)))
+
+(defn print-usage []
+  "Usage:\nGenerating a temporary email: ghost-app\n
+   Opening your temporary email inbox: ghost-app <email>\n")
+
 (defn -main
   [& args]
-  (println (str "Temporary Email Address: " (generate-email))))
+  (let [len (count args)]
+    (cond
+      (= len 0) (print-new-email (generate-email))
+      (= len 1) (print-inbox (first args))
+      :else (print-usage))))

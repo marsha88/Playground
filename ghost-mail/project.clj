@@ -6,7 +6,8 @@
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [cheshire "5.6.1"]
                  [clj-http "3.10.0"]
-                 [hickory "0.7.1"]]
+                 [hickory "0.7.1"]
+                 [digest "1.4.9"]]
   :main ^:skip-aot ghost-mail.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})
