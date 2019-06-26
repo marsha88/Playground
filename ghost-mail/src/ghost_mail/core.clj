@@ -5,6 +5,8 @@
    [clj-http.client :as client]
    [hickory.select :as s]
    [digest])
+  (:import
+   (org.apache.http.impl.client HttpClientBuilder))
   (:gen-class))
 
 (def base-url "https://privatix-temp-mail-v1.p.rapidapi.com/request/mail/id/")
@@ -12,11 +14,18 @@
 (def headers {"X-RapidAPI-Host" "privatix-temp-mail-v1.p.rapidapi.com"
               "X-RapidAPI-Key" "adbc8ccf14msh80799d1612132b9p16c604jsndfa6cd074d91"})
 
+(defn cookie-disabler [^HttpClientBuilder builder
+                       request]
+  (when (:disable-cookies request)
+    (.disableCookieManagement builder)))
+
 (defn email-request [email-hash]
   "Given an md5 hash of a provided email - makes request for all messages in inbox"
   (:body (client/get (str base-url email-hash "/")
                      {:headers headers
-                      :cookie-policy :ignore-cookies
+                      :http-builder-fns [cookie-disabler]
+                      :disable-cookies true
+                      :cookie-policy :standard
                       :as :json})))
 
 (defn format-email [{error :error
