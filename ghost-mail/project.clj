@@ -7,7 +7,8 @@
                  [cheshire "5.6.1"]
                  [clj-http "3.10.0"]
                  [hickory "0.7.1"]
-                 [digest "1.4.9"]]
+                 [digest "1.4.9"]
+                 [org.apache.httpcomponents/httpclient "4.5.8"]]
   :main ^:skip-aot ghost-mail.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})

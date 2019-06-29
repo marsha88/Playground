@@ -32,7 +32,6 @@
                      from :mail_from
                      subject :mail_subject
                      message :mail_text}]
-  (println error)
   (if error
     "Inbox Empty"
     (str "From: " from "\nSubject: " subject "\n\n" message "\n\n")))
