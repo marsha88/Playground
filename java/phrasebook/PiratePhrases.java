@@ -1,7 +1,5 @@
 
-
 public class PiratePhrases { 
-	public static void main(String[] args) { 
-		System.out.println("testing123");
-	}
+	final static String greet = "shiver me timbers!!!";
+	final static String farewell = "arg";
 }
