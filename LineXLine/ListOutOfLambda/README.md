@@ -214,13 +214,13 @@ Wanna see how?
 const farm_animal_sounds = prepend("moo", prepend("oink", empty))
 
 // grab the first element
-const head_element = list("head"). // "moo"
+const head_element = farm_animal_sounds("head") // "moo"
 
 // grab everything after the first element
-const tail_elements = list("tail") // prepend("oink", empty)
+const tail_elements = farm_animal_sounds("tail") // prepend("oink", empty)
 
 // create a new list by prepending "woof" to our old list
-const more_animal_sounds = prepend("woof", list)
+const more_animal_sounds = prepend("woof", farm_animal_sounds)
 ```
 
 A little confused? Remember that our `prepend` function returns a function. The returned function accepts an option argument of either `"head"` or `"tail"` and returns the `head` or `tail` as they were specified in the outer `prepend` function's arguments. It's a simple idea, but very unfamiliar and difficult to wrap your head around, so don't worry if it isn't crystal clear yet. 
