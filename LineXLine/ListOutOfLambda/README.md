@@ -36,16 +36,14 @@ Consider the case when a function returns a function. As we've discussed, all Ja
 function lineByLine() {
 	const name = "LineXLine"
 	const authors = ["ben", "jon", "clayton"]
-	function getTeamInfo() {
+	return function() {
 		return name + " team: " + authors.join()
 	}
-	
-	return getTeamInfo
 }
 
-const getLineXLineTeam = lineByLine()
+const getTeamInfo = lineByLine()
 
-getBlogInfo()
+getTeamInfo()
 => "linexline team: ben,jon,clayton"
 ```
 
@@ -691,11 +689,7 @@ Hopefully this exercise forced you to think a little differently. Trying to buil
 
 Thanks for reading!
 
-Links: 
-
-
 Functional List Implementation: https://github.com/claytn/Playground/tree/master/LineXLine/ListOutOfLambda
-(going to change this link soon)
 
 Follow me on [Github](https://github.com/claytn)
 
