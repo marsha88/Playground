@@ -267,11 +267,11 @@ function length(list) {
   //TODO
 }
 
-function printList(list) {
- //TODO	
+function map(f, list) {
+  //TODO
 }
 
-function map(list) {
+function filter(predicate, list) {
   //TODO
 }
 
