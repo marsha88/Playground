@@ -1,11 +1,24 @@
+import scala.collection.mutable.HashMap
+
 class School {
-  type DB = Map[Int, Seq[String]]
+  type DB = HashMap[Int, Seq[String]]
 
-  def add(name: String, g: Int) = ???
+  private var _db = new DB
 
-  def db: DB = ???
+  def db: DB = _db
 
-  def grade(g: Int): Seq[String] = ???
+  def add(name: String, g: Int) = {
+    val updatedRoster = 
+      if (_db.contains(g)) {
+        _db(g) :+ name
+      } else {
+        Seq(name)
+      }
 
-  def sorted: DB = ???
+    _db(g) = updatedRoster
+  }
+
+  def grade(g: Int): Seq[String] = _db(g)
+
+  def sorted: DB = new DB
 }

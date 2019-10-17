@@ -1,6 +1,6 @@
 # Impractical, Functional Lists (List out of Lambda)
 
-For my first post, I wanted to do something strange and entertaining. I don't want to bore you with super serious facts, or cover anything practical for that matter. Instead, we'll be walking through a programming exercise of sorts. The ideas in this post come from a topic in math called [Chruch Encodings](https://en.wikipedia.org/wiki/Church_encoding), and were inspired by another article, [List out of Lambda](http://stevelosh.com/blog/2013/03/list-out-of-lambda/).
+For my first post, I wanted to do something strange and entertaining. I don't want to bore you with super serious facts, or cover anything practical for that matter. Instead, we'll be walking through a programming exercise of sorts. The ideas in this post come from a topic in math called [Church Encodings](https://en.wikipedia.org/wiki/Church_encoding), and were inspired by another article, [List out of Lambda](http://stevelosh.com/blog/2013/03/list-out-of-lambda/).
 
 ## Introduction:
 The goal of today is to rebuild language functionality using a VERY limited tool set. Sort of a "build a lot with a little" puzzle. We'll be creating a Javascript list data structure using **nothing** but functions.
@@ -397,54 +397,57 @@ head(tear_worthy_movies)
 
 Walkthrough: 
 
-	// Line 1
-	const myList = prepend("Cast Away", empty)
+```Javascript
+// Line 1
+const myList = prepend("Cast Away", empty)
+```
 ___
-
-	// Reduction of the prepend call in Line 1
-	const myList = function(op) {		
-      return op("Cast Away", empty)
-    }
+```Javascript
+// Reduction of the prepend call in Line 1
+const myList = function(op) {		
+  return op("Cast Away", empty)
+}
+```
 ___
-
-	// Line 2
-	head(myList)
-
+```Javascript
+// Line 2
+head(myList)
+```
 ___ 
-
-	// Expanding the head function from Line 2
-	(function(list){
-      return list(function(head, tail) {
-        return head;
-      })
-    })(myList)
-
+```Javascript
+// Expanding the head function from Line 2
+(function(list){
+  return list(function(head, tail) {
+    return head;
+  })
+})(myList)
+```
 ___
-
-	// Reduction of Step 4
-	myList(function(head, tail) {
-       return head
-    })
-
+```Javascript
+// Reduction of Step 4
+myList(function(head, tail) {
+   return head
+})
+```
 ___
-
-	// Expanding the myList function 
-	(function(op) {
-      return op("Cast Away", empty)
-    })(function(head, tail) {
-       return head
-    })
-
+```Javascript
+// Expanding the myList function 
+(function(op) {
+  return op("Cast Away", empty)
+})(function(head, tail) {
+   return head
+})
+```
 ___
-
-	// Reduction of Step 6
- 	 (function(head, tail) { return head })("Cast Away", empty)
-
+```Javascript
+// Reduction of Step 6
+ (function(head, tail) { return head })("Cast Away", empty)
+```
 ___ 
-
- 	// Final Reduction
-     "Cast Away"
-
+```Javascript
+// Final Reduction
+ "Cast Away"
+```
 
 That was a lot of logic to trace through. If you're still confused about how this works, take your time reading over the steps again, or try your own example on paper. You will need a good understanding of this section before moving on to the next one.
 
