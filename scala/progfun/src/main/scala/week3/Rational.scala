@@ -1,4 +1,4 @@
-package week2
+package week3
 
 class Rational(x: Int, y: Int) {
   require(y != 0, "Denominator must be nonzero number")
@@ -8,18 +8,15 @@ class Rational(x: Int, y: Int) {
 
   override def toString = s"$numer / $denom"
 
-  def +(that: week3.Rational) =
+  def +(that: Rational) =
     Rational(numer * that.denom + that.numer * denom, denom * that.denom)
 
-  def -(that: week3.Rational) =
+  def -(that: Rational) =
     this + -that
 
-  def unary_- : week3.Rational = Rational(-numer, denom)
+  def unary_- : Rational = Rational(-numer, denom)
 }
 
 object Rational {
-  def apply(x: Int, y: Int) = new week3.Rational(x, y)
+  def apply(x: Int, y: Int) = new Rational(x, y)
 }
-
-
-Rational(1, 2) + Rational(1, 2)

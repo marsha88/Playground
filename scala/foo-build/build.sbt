@@ -1,0 +1,3 @@
+organization := "claytn"
+
+name := "foobuild"
