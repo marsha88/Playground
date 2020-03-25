@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e0812361-d29c-4d9f-b7a0-3c3f605c9946" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.lein-repl-history" beforeDir="false" afterPath="$PROJECT_DIR$/.lein-repl-history" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reverse_string.clj" beforeDir="false" afterPath="$PROJECT_DIR$/src/reverse_string.clj" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1Z7p7Tnv6avgLBLEDbuvTGlUvvP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="ReplState" timestamp="1584215399885">{:repl-history {:ide [], :local [], :remote []}}</component>
+  <component name="RunManager" selected="Clojure REPL.remoted">
+    <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
+      <setting name="replType" value="NREPL" />
+      <setting name="execution" value="LEININGEN" />
+      <module name="" />
+      <setting name="jvmArgs" value="" />
+      <setting name="parameters" value="" />
+      <setting name="workingDir" value="" />
+      <setting name="profiles" value="" />
+      <setting name="aliases" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Remote" activateToolWindowBeforeRun="false">
+      <setting name="host" value="" />
+      <setting name="port" value="0" />
+      <setting name="replType" value="SOCKET" />
+      <setting name="configType" value="SPECIFY" />
+      <setting name="fixLineNumbers" value="false" />
+      <module name="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="my-repl" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
+      <module name="reverse-string" />
+      <setting name="replType" value="NREPL" />
+      <setting name="execution" value="LEININGEN" />
+      <setting name="jvmArgs" value="" />
+      <setting name="parameters" value="" />
+      <setting name="workingDir" value="$PROJECT_DIR$" />
+      <setting name="profiles" value="" />
+      <setting name="aliases" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="remoted" type="ClojureREPL" factoryName="Remote" activateToolWindowBeforeRun="false">
+      <module name="reverse-string" />
+      <setting name="host" value="nrepl://127.0.0.1" />
+      <setting name="port" value="61236" />
+      <setting name="replType" value="NREPL" />
+      <setting name="configType" value="SPECIFY" />
+      <setting name="fixLineNumbers" value="false" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Clojure REPL.my-repl" />
+      <item itemvalue="Clojure REPL.remoted" />
+    </list>
+  </component>
+  <component name="SbtLocalSettings">
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$/../../s99" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e0812361-d29c-4d9f-b7a0-3c3f605c9946" name="Default Changelist" comment="" />
+      <created>1584199820013</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1584199820013</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="184" y="78" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584211903100">
+      <screen x="0" y="23" width="1440" height="786" />
+    </state>
+    <state x="184" y="78" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.786@0.23.1440.786" timestamp="1584211903100" />
+    <state x="251" y="55" key="SettingsEditor" timestamp="1584199917095">
+      <screen x="0" y="23" width="1440" height="786" />
+    </state>
+    <state x="251" y="55" key="SettingsEditor/0.23.1440.786@0.23.1440.786" timestamp="1584199917095" />
+  </component>
+</project>

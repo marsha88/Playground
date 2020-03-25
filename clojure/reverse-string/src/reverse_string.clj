@@ -5,3 +5,8 @@
 
 (defn reverse-string' [s]
   (reduce (flip str) s))
+
+(defn hello-world []
+  "Hello, world")
+
+(def oof "oof")

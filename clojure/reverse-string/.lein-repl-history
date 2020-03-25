@@ -32,3 +32,4 @@
 (seq "woof")
 (str (seq "woof"))
 '(\w \o \o \f)
+(def woof "this is a test")
