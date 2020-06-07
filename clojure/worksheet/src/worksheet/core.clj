@@ -66,3 +66,89 @@
     (await-futures futures-list)
     @word-counts))
 
+(defmacro unless [pred & exprs]
+  `(if (not ~pred)
+     (do ~@exprs)))
+
+
+(defmacro defnlog [fname args & body]
+  `(defn ~fname ~args
+     (let [now# (System/currentTimeMillis)]
+       (println "[" now# "] Call to " (str (var ~fname)))
+       ~@body)))
+
+(defmacro comment' [& body])
+
+(defmacro infix [& exprs]
+  (let [[lhs op rhs] exprs]
+    (list op lhs rhs)))
+
+(defmacro randomly [& exprs]
+  (let [len (count exprs)
+        index (rand-int len)]
+    (nth exprs index)))
+
+
+(defmacro defwebmethod [name args & exprs]
+  `(defn ~name [{:keys ~args}]
+     ~@exprs))
+
+;; Object system from closures
+(defn new-user
+  [login password email]
+  (fn [a & args]
+    (case a
+      :login login
+      :email email
+      :authenticate (= password (first args))
+      nil)))
+
+(declare ^:dynamic this)
+
+(defn new-object [klass]
+  (let [state (atom {})]
+    (fn self [command & args]
+      (case command
+        :class klass
+        :class-name (klass :name)
+        :set! (let [[k v] args]
+                (swap! state assoc k v))
+        :get (let [[k] args]
+               (@state k))
+        (if-let [method (klass :method command)]
+          (binding [this self]
+            (apply method args))
+          (throw (RuntimeException.
+                   (str "Unable to respond to " command))))))))
+
+(defn find-method [method-name methods]
+  (methods method-name))
+
+(defn new-class [class-name methods]
+  (fn klass [a & args]
+    (case a
+      :name (name class-name)
+      :new (new-object klass)
+      :method (let [[method-name] args]
+                (find-method method-name methods)))))
+
+(defn method-spec [sexpr]
+  (let [name (keyword (second sexpr))
+        body (next sexpr)]
+    [name (conj body 'fn)]))
+
+(defn method-specs [sexprs]
+  (->> sexprs
+       (filter #(= 'method (first %)))
+       (mapcat method-spec)
+       (apply hash-map)))
+
+(defmacro defclass [class-name & specs]
+  (let [fns (or (method-specs specs) {})]
+    `(def ~class-name (new-class '~class-name ~fns))))
+
+(defmacro defrec [name fields]
+  `(defn ~name [& values#]
+     (let [keys# (map keyword '~fields)
+           ~fields values#]
+       (zipmap keys# values#))))

@@ -1,5 +1,8 @@
 (ns worksheet.foo)
 
-(defn woof
-  []
-  (println "bark bark"))
+(defn woof []
+  (println "woof"))
+
+(defmacro db [expr]
+  `(let [x# ~expr]
+     (println (str (quote ~expr) " => " x#))))

@@ -1,0 +1,12 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@import url("https://unpkg.com/blocks.css/dist/blocks.min.css");
+
+.block:focus {
+  translate: none;
+}
