@@ -41,6 +41,8 @@
             (eval else)))
     'do (last (map (partial eval locals) args))))
 
+
+
 (defn eval
   ([form] (eval {} form))
   ([locals form]
@@ -48,6 +50,7 @@
       (boolean? form) form
       (integer? form) form
       (string? form) form
+      (keyword? form) form
       (symbol? form) (let [v (get locals form ::fail)]
                        (if (= v ::fail)
                          (if-let [v (resolve form)]
@@ -61,6 +64,5 @@
                           (eval locals (apply f nil nil args)))
                         (let [args (map (partial eval locals) (rest form))]
                           (apply f args)))))
-      (keyword? form) form
       (vector? form) (mapv (partial eval locals) form)
       :else (throw (Exception. (str "Can't evaluate form of " form))))))

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="bef02950-8480-4ef0-a838-37e564106552" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../worksheet/src/worksheet/lisp.clj" beforeDir="false" afterPath="$PROJECT_DIR$/../../../worksheet/src/worksheet/lisp.clj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../clojurescript/cursive-shadow-cljs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../picsix-action-api/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../picsix-action-api/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../picsix-action-api/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../picsix-action-api/.idea/picsix-action-api.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../picsix-action-api/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../picsix-action-api/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ramda/curry.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ramda/curryN.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../s99/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../s99/.idea/ClojureProjectResolveSettings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../s99/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../s99/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../s99/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../s99/.idea/modules/s99_7260-build.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../s99/.idea/modules/s99_7260.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../s99/.idea/sbt.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../s99/.idea/scala_compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../s99/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../s99/build.sbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../s99/project/build.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../s99/src/main/scala/ADT.sc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../s99/src/main/scala/Lists.scala" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="DepsProjectDetails">
+    <option name="cachedModuleDetails">
+      <map>
+        <entry key="$PROJECT_DIR$/deps.edn">
+          <value>
+            <ModuleDetails>
+              <option name="details" value="{:paths [&quot;src&quot; &quot;resources&quot;], :deps {org.clojure/clojure {:mvn/version &quot;1.10.1&quot;}}, :aliases {:deps {:extra-deps {org.clojure/tools.deps.alpha {:mvn/version &quot;0.6.496&quot;}}}, :test {:extra-paths [&quot;test&quot;], :extra-deps {org.clojure/test.check {:mvn/version &quot;1.0.0&quot;}}}, :async {:extra-deps {org.clojure/core.async {:mvn/version &quot;1.2.603&quot;}, com.bhauman/rebel-readline {:mvn/version &quot;0.1.4&quot;}}, :main-opts [&quot;--eval&quot; &quot;(require,'[clojure.core.async,:as,a])&quot; &quot;-m&quot; &quot;rebel-readline.main&quot;]}, :rebel {:extra-deps {com.bhauman/rebel-readline {:mvn/version &quot;0.1.4&quot;}}, :main-opts [&quot;-m&quot; &quot;rebel-readline.main&quot;]}, :new {:extra-deps {seancorfield/clj-new {:mvn/version &quot;0.7.6&quot;}}, :main-opts [&quot;-m&quot; &quot;clj-new.create&quot;]}, :runner {:extra-deps {com.cognitect/test-runner {:git/url &quot;https://github.com/cognitect-labs/test-runner&quot;, :sha &quot;f7ef16dc3b8332b0d77bc0274578ad5270fbfedd&quot;}}, :main-opts [&quot;-m&quot; &quot;cognitect.test-runner&quot; &quot;-d&quot; &quot;test&quot;]}, :uberjar {:extra-deps {seancorfield/depstar {:mvn/version &quot;1.0.94&quot;}}, :main-opts [&quot;-m&quot; &quot;hf.depstar.uberjar&quot; &quot;poker.jar&quot; &quot;-C&quot; &quot;-m&quot; &quot;claytn.poker&quot;]}}, :mvn/repos {&quot;central&quot; {:url &quot;https://repo1.maven.org/maven2/&quot;}, &quot;clojars&quot; {:url &quot;https://repo.clojars.org/&quot;}}, :system-aliases #{:async :new :rebel :test :deps}, :deps-tree {org.clojure/clojure {:mvn/version &quot;1.10.1&quot;, :deps/manifest :mvn, :paths [&quot;/Users/cmarshall/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar&quot;], :children (org.clojure/spec.alpha org.clojure/core.specs.alpha)}, org.clojure/test.check {:mvn/version &quot;1.0.0&quot;, :deps/manifest :mvn, :paths [&quot;/Users/cmarshall/.m2/repository/org/clojure/test.check/1.0.0/test.check-1.0.0.jar&quot;], :children ()}, org.clojure/spec.alpha {:mvn/version &quot;0.2.176&quot;, :deps/manifest :mvn, :paths [&quot;/Users/cmarshall/.m2/repository/org/clojure/spec.alpha/0.2.176/spec.alpha-0.2.176.jar&quot;], :dependents [org.clojure/clojure], :children ()}, org.clojure/core.specs.alpha {:mvn/version &quot;0.2.44&quot;, :deps/manifest :mvn, :paths [&quot;/Users/cmarshall/.m2/repository/org/clojure/core.specs.alpha/0.2.44/core.specs.alpha-0.2.44.jar&quot;], :dependents [org.clojure/clojure], :children ()}}, :test-paths [&quot;test&quot;]}" />
+              <option name="hash" value="56c4dfe3b60f375ce762b3022ee15721" />
+            </ModuleDetails>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../deps.edn">
+          <value>
+            <ModuleDetails>
+              <option name="details" value="{:paths [&quot;src&quot; &quot;resources&quot;], :deps {org.clojure/clojure {:mvn/version &quot;1.10.1&quot;}, org.clojure/core.match {:mvn/version &quot;1.0.0&quot;}}, :aliases {:deps {:extra-deps {org.clojure/tools.deps.alpha {:mvn/version &quot;0.6.496&quot;}}}, :test {:extra-paths [&quot;test&quot;], :extra-deps {org.clojure/test.check {:mvn/version &quot;1.0.0&quot;}}}, :async {:extra-deps {org.clojure/core.async {:mvn/version &quot;1.2.603&quot;}, com.bhauman/rebel-readline {:mvn/version &quot;0.1.4&quot;}}, :main-opts [&quot;--eval&quot; &quot;(require,'[clojure.core.async,:as,a])&quot; &quot;-m&quot; &quot;rebel-readline.main&quot;]}, :rebel {:extra-deps {com.bhauman/rebel-readline {:mvn/version &quot;0.1.4&quot;}}, :main-opts [&quot;-m&quot; &quot;rebel-readline.main&quot;]}, :new {:extra-deps {seancorfield/clj-new {:mvn/version &quot;0.7.6&quot;}}, :main-opts [&quot;-m&quot; &quot;clj-new.create&quot;]}, :runner {:extra-deps {com.cognitect/test-runner {:git/url &quot;https://github.com/cognitect-labs/test-runner&quot;, :sha &quot;f7ef16dc3b8332b0d77bc0274578ad5270fbfedd&quot;}}, :main-opts [&quot;-m&quot; &quot;cognitect.test-runner&quot; &quot;-d&quot; &quot;test&quot;]}, :uberjar {:extra-deps {seancorfield/depstar {:mvn/version &quot;1.0.94&quot;}}, :main-opts [&quot;-m&quot; &quot;hf.depstar.uberjar&quot; &quot;poker.jar&quot; &quot;-C&quot; &quot;-m&quot; &quot;claytn.poker&quot;]}}, :mvn/repos {&quot;central&quot; {:url &quot;https://repo1.maven.org/maven2/&quot;}, &quot;clojars&quot; {:url &quot;https://repo.clojars.org/&quot;}}, :system-aliases #{:async :new :rebel :test :deps}, :deps-tree {org.clojure/clojure {:mvn/version &quot;1.10.1&quot;, :deps/manifest :mvn, :paths [&quot;/Users/cmarshall/.m2/repository/org/clojure/clojure/1.10.1/clojure-1.10.1.jar&quot;], :children (org.clojure/spec.alpha org.clojure/core.specs.alpha)}, org.clojure/core.match {:mvn/version &quot;1.0.0&quot;, :deps/manifest :mvn, :paths [&quot;/Users/cmarshall/.m2/repository/org/clojure/core.match/1.0.0/core.match-1.0.0.jar&quot;], :children ()}, org.clojure/test.check {:mvn/version &quot;1.0.0&quot;, :deps/manifest :mvn, :paths [&quot;/Users/cmarshall/.m2/repository/org/clojure/test.check/1.0.0/test.check-1.0.0.jar&quot;], :children ()}, org.clojure/spec.alpha {:mvn/version &quot;0.2.176&quot;, :deps/manifest :mvn, :paths [&quot;/Users/cmarshall/.m2/repository/org/clojure/spec.alpha/0.2.176/spec.alpha-0.2.176.jar&quot;], :dependents [org.clojure/clojure], :children ()}, org.clojure/core.specs.alpha {:mvn/version &quot;0.2.44&quot;, :deps/manifest :mvn, :paths [&quot;/Users/cmarshall/.m2/repository/org/clojure/core.specs.alpha/0.2.44/core.specs.alpha-0.2.44.jar&quot;], :dependents [org.clojure/clojure], :children ()}}, :test-paths [&quot;test&quot;]}" />
+              <option name="hash" value="a43ee5c3e8cffbfc05fa3564a232e6a9" />
+            </ModuleDetails>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1eeD31V1qCCQXmvGQro3v7sSnEJ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="ReplState" timestamp="1594685961880">{:repl-history {:ide [], :local [{:command &quot;(deftest poker-fns\n  (testing \&quot;suit\&quot;\n    (is (= (suit \&quot;2H\&quot;) \&quot;H\&quot;)))\n  (testing \&quot;rank\&quot;\n    (is (= (rank \&quot;2H\&quot;) 2)))\n  (testing \&quot;pair?\&quot;\n    (is (pair? pair-hand))\n    (is (not (pair? three-of-a-kind-hand)))\n    (is (not (pair? high-seven))))\n  (testing \&quot;two-pairs?\&quot;\n    (is (two-pairs? two-pairs-hand))\n    (is (not (two-pairs? pair-hand)))\n    (is (not (two-pairs? four-of-a-kind-hand))))\n  (testing \&quot;three-of-a-kind?\&quot;\n    (is (three-of-a-kind? three-of-a-kind-hand)))\n  (testing \&quot;four-of-a-kind?\&quot;\n    (is (four-of-a-kind? four-of-a-kind-hand)))\n  (testing \&quot;straight?\&quot;\n    (is (straight? straight-hand)))\n  (testing \&quot;flush?\&quot;\n    (is (flush? flush-hand)))\n  (testing \&quot;straight-flush?\&quot;\n    (is (straight-flush? straight-flush-hand))\n    (is (straight-flush? high-ace-straight-flush-hand)))\n )&quot;, :offset 787, :ns &quot;poker.core-test&quot;} {:command &quot;(flush? [\&quot;2H\&quot; \&quot;4H\&quot; \&quot;5H\&quot; \&quot;9H\&quot; \&quot;7H\&quot;])&quot;, :offset 34, :ns &quot;user&quot;} {:command &quot;(ns poker.core\n  (:require [clojure.core.match :refer [match]]))&quot;, :offset 64, :ns &quot;user&quot;}], :remote []}}</component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false" nameIsGenerated="true">
+      <module name="poker" />
+      <setting name="replType" value="NREPL" />
+      <setting name="execution" value="INTELLIJ" />
+      <setting name="jvmArgs" value="" />
+      <setting name="parameters" value="" />
+      <setting name="workingDir" value="$PROJECT_DIR$/../.." />
+      <setting name="profiles" value="" />
+      <setting name="aliases" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
+      <setting name="replType" value="NREPL" />
+      <setting name="execution" value="LEININGEN" />
+      <setting name="jvmArgs" value="" />
+      <setting name="parameters" value="" />
+      <setting name="workingDir" value="" />
+      <setting name="profiles" value="" />
+      <setting name="aliases" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Remote" activateToolWindowBeforeRun="false">
+      <setting name="host" value="" />
+      <setting name="port" value="0" />
+      <setting name="replType" value="SOCKET" />
+      <setting name="configType" value="SPECIFY" />
+      <setting name="replPortFileType" value="STANDARD" />
+      <setting name="customPortFile" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bef02950-8480-4ef0-a838-37e564106552" name="Default Changelist" comment="" />
+      <created>1594672961222</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1594672961222</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="184" y="78" width="1093" height="676" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594682499602">
+      <screen x="0" y="23" width="1440" height="786" />
+    </state>
+    <state x="184" y="78" width="1093" height="676" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.786@0.23.1440.786" timestamp="1594682499602" />
+    <state x="251" y="55" key="SettingsEditor" timestamp="1594682862818">
+      <screen x="0" y="23" width="1440" height="786" />
+    </state>
+    <state x="251" y="55" key="SettingsEditor/0.23.1440.786@0.23.1440.786" timestamp="1594682862818" />
+  </component>
+</project>

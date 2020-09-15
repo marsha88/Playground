@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cb383a93-a2ae-4582-a2f1-64d6d0606110" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../clojurescript/cursive-shadow-cljs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../picsix-action-api/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../picsix-action-api/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../picsix-action-api/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../picsix-action-api/.idea/picsix-action-api.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../picsix-action-api/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../picsix-action-api/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ramda/curry.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ramda/curryN.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../s99/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../s99/.idea/ClojureProjectResolveSettings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../s99/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../s99/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../s99/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../s99/.idea/modules/s99_7260-build.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../s99/.idea/modules/s99_7260.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../s99/.idea/sbt.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../s99/.idea/scala_compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../s99/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../s99/build.sbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../s99/project/build.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../s99/src/main/scala/ADT.sc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../s99/src/main/scala/Lists.scala" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1hOC8KglXz9NOt6kb5e1240jSCM" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="ReplState" timestamp="1599956672323">{:repl-history {:ide [], :local [{:command &quot;(remove #{\\-} \&quot;1232-1232\&quot;)&quot;, :offset 26, :ns &quot;user&quot;} {:command &quot;(number? \\4)&quot;, :offset 9, :ns &quot;user&quot;} {:command &quot;(def digits \&quot;0123456789\&quot;)&quot;, :offset 25, :ns &quot;user&quot;} {:command &quot;(re-matches #\&quot;\\d{10}\&quot; digits)&quot;, :offset 29, :ns &quot;user&quot;} {:command &quot;(re-matches #\&quot;\\d{10}\&quot; \&quot;1232\&quot;)&quot;, :offset 29, :ns &quot;user&quot;} {:command &quot;(re-matches #\&quot;\\d{10}\&quot; \&quot;123D567890\&quot;)&quot;, :offset 35, :ns &quot;user&quot;} {:command &quot;(isbn-verifier/isbn? \&quot;3-598-21508-8\&quot;)&quot;, :offset 37, :ns &quot;user&quot;} {:command &quot;(re-matches #\&quot;\\d{1}\&quot; '(\\1))&quot;, :offset 27, :ns &quot;user&quot;} {:command &quot;(defn digit [x]\n  (- (int x) (int \\0)))\n\n(defn debug [x]\n  (clojure.pprint/pprint x)\n  x)\n\n(defn isbn? [isbn]\n  (let [digit-chars (remove #{\\-} isbn)\n        digit-str (apply str digit-chars)]\n    (if (not (re-matches #\&quot;\\d{10}\&quot; digit-str))\n      false\n      (-&gt;&gt; digit-chars\n           debug\n           (map-indexed (fn [idx c] [(- 10 idx) (digit c)]))\n           debug\n           (map (fn [[multiplier digit]] (* multiplier digit)))\n           debug\n           (apply +)\n           #(zero? (mod % 11))))))&quot;, :offset 506, :ns &quot;isbn-verifier&quot;} {:command &quot;(isbn-verifier/isbn? \&quot;1232\&quot;)&quot;, :offset 28, :ns &quot;user&quot;} {:command &quot;(isbn-verifier/isbn? \&quot; 3-598-21508-8\&quot;)&quot;, :offset 38, :ns &quot;user&quot;} {:command &quot;(println \&quot;woof\&quot;)&quot;, :offset 16, :ns &quot;user&quot;} {:command &quot;(isbn-verifier/isbn? \&quot;3-598-21508-8\&quot;\n                     )&quot;, :offset 59, :ns &quot;user&quot;} {:command &quot;(re-matches #\&quot;(\\d|X){5}\&quot; \&quot;1232X\&quot;)&quot;, :offset 33, :ns &quot;user&quot;} {:command &quot;(re-matches #\&quot;(\\d|X){5}\&quot; \&quot;XXXXX\&quot;)&quot;, :offset 33, :ns &quot;user&quot;} {:command &quot;(re-matches #\&quot;((\\d)|(X)){5}\&quot; \&quot;XXXXX\&quot;)&quot;, :offset 23, :ns &quot;user&quot;} {:command &quot;(re-matches #\&quot;\\d|X{5}\&quot; \&quot;XXXXX\&quot;)&quot;, :offset 18, :ns &quot;user&quot;} {:command &quot;(re-matches #\&quot;\\d|X{5}\&quot; \&quot;12XXX\&quot;)&quot;, :offset 26, :ns &quot;user&quot;} {:command &quot;(re-matches #\&quot;(\\d|X){5}\&quot; \&quot;12XXX\&quot;)&quot;, :offset 20, :ns &quot;user&quot;} {:command &quot;(re-matches #\&quot;[\\d|X]{5}\&quot; \&quot;12XXX\&quot;)&quot;, :offset 20, :ns &quot;user&quot;} {:command &quot;(re-matches #\&quot;[\\d|X]{5}\&quot; \&quot;12345\&quot;)&quot;, :offset 33, :ns &quot;user&quot;} {:command &quot;(re-matches #\&quot;\\d{9}[\\d|X]\&quot; \&quot;3-598-21508-8\&quot;)&quot;, :offset 43, :ns &quot;user&quot;} {:command &quot;(re-matches #\&quot;\\d{9}[\\d|X]\&quot; \&quot;3598215088\&quot;\n            )&quot;, :offset 52, :ns &quot;user&quot;} {:command &quot;(re-matches #\&quot;\\d{9}[\\d|X]\&quot; \&quot;359821508X\&quot;)&quot;, :offset 40, :ns &quot;user&quot;}], :remote []}}</component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false" nameIsGenerated="true">
+      <module name="isbn-verifier" />
+      <setting name="replType" value="NREPL" />
+      <setting name="execution" value="LEININGEN" />
+      <setting name="jvmArgs" value="" />
+      <setting name="parameters" value="" />
+      <setting name="workingDir" value="$PROJECT_DIR$/.." />
+      <setting name="profiles" value="" />
+      <setting name="aliases" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
+      <setting name="replType" value="NREPL" />
+      <setting name="execution" value="LEININGEN" />
+      <setting name="jvmArgs" value="" />
+      <setting name="parameters" value="" />
+      <setting name="workingDir" value="" />
+      <setting name="profiles" value="" />
+      <setting name="aliases" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Remote" activateToolWindowBeforeRun="false">
+      <setting name="host" value="" />
+      <setting name="port" value="0" />
+      <setting name="replType" value="SOCKET" />
+      <setting name="configType" value="SPECIFY" />
+      <setting name="replPortFileType" value="STANDARD" />
+      <setting name="customPortFile" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cb383a93-a2ae-4582-a2f1-64d6d0606110" name="Default Changelist" comment="" />
+      <created>1599872590222</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1599872590222</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="184" y="78" width="1093" height="676" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599933337125">
+      <screen x="0" y="23" width="1440" height="786" />
+    </state>
+    <state x="184" y="78" width="1093" height="676" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1600.23.1600.877/0.23.1440.786@0.23.1440.786" timestamp="1599933337125" />
+    <state width="1396" height="79" key="GridCell.Tab.0.bottom" timestamp="1599934961050">
+      <screen x="0" y="23" width="1440" height="786" />
+    </state>
+    <state width="1396" height="79" key="GridCell.Tab.0.bottom/-1600.23.1600.877/0.23.1440.786@0.23.1440.786" timestamp="1599934961050" />
+    <state width="1396" height="79" key="GridCell.Tab.0.center" timestamp="1599934961049">
+      <screen x="0" y="23" width="1440" height="786" />
+    </state>
+    <state width="1396" height="79" key="GridCell.Tab.0.center/-1600.23.1600.877/0.23.1440.786@0.23.1440.786" timestamp="1599934961049" />
+    <state width="1396" height="79" key="GridCell.Tab.0.left" timestamp="1599934961048">
+      <screen x="0" y="23" width="1440" height="786" />
+    </state>
+    <state width="1396" height="79" key="GridCell.Tab.0.left/-1600.23.1600.877/0.23.1440.786@0.23.1440.786" timestamp="1599934961048" />
+    <state width="1396" height="79" key="GridCell.Tab.0.right" timestamp="1599934961049">
+      <screen x="0" y="23" width="1440" height="786" />
+    </state>
+    <state width="1396" height="79" key="GridCell.Tab.0.right/-1600.23.1600.877/0.23.1440.786@0.23.1440.786" timestamp="1599934961049" />
+    <state width="1396" height="79" key="GridCell.Tab.1.bottom" timestamp="1599934961052">
+      <screen x="0" y="23" width="1440" height="786" />
+    </state>
+    <state width="1396" height="79" key="GridCell.Tab.1.bottom/-1600.23.1600.877/0.23.1440.786@0.23.1440.786" timestamp="1599934961052" />
+    <state width="1396" height="79" key="GridCell.Tab.1.center" timestamp="1599934961051">
+      <screen x="0" y="23" width="1440" height="786" />
+    </state>
+    <state width="1396" height="79" key="GridCell.Tab.1.center/-1600.23.1600.877/0.23.1440.786@0.23.1440.786" timestamp="1599934961051" />
+    <state width="1396" height="79" key="GridCell.Tab.1.left" timestamp="1599934961050">
+      <screen x="0" y="23" width="1440" height="786" />
+    </state>
+    <state width="1396" height="79" key="GridCell.Tab.1.left/-1600.23.1600.877/0.23.1440.786@0.23.1440.786" timestamp="1599934961050" />
+    <state width="1396" height="79" key="GridCell.Tab.1.right" timestamp="1599934961051">
+      <screen x="0" y="23" width="1440" height="786" />
+    </state>
+    <state width="1396" height="79" key="GridCell.Tab.1.right/-1600.23.1600.877/0.23.1440.786@0.23.1440.786" timestamp="1599934961051" />
+    <state x="204" y="44" key="SettingsEditor" timestamp="1599933309181">
+      <screen x="0" y="23" width="1440" height="786" />
+    </state>
+    <state x="204" y="44" key="SettingsEditor/-1600.23.1600.877/0.23.1440.786@0.23.1440.786" timestamp="1599933309181" />
+  </component>
+</project>
