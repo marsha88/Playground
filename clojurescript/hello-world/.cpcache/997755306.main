@@ -1,1 +1,0 @@
---main cljs.main --watch src --compile hello-world.app

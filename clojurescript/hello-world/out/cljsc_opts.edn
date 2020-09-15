@@ -1,1 +1,0 @@
-{:browser-repl true, :watch #object[cljs.closure$compilable_input_paths$reify__5335 0x2fd8b081 "cljs.closure$compilable_input_paths$reify__5335@2fd8b081"], :main hello-world.app, :output-to "out/main.js", :output-dir "out", :aot-cache true, :verbose true, :cljs.closure/watch-triggered-build? true}
